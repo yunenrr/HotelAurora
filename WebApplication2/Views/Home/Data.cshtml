@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Data";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://localhost:63596/api/Hotel/getHotel",
+            type: "Get",
+            success: function (data) {
+                //for (var i = 0; i < data.length; i++) {
+                    $("<tr><td>" +  data.NameHotel + "</td></tr>").appendTo("#hotel");
+                //}
+            },
+            error: function (msg) { alert(msg); }
+        });
+    });
+</script>
+
+<h2>Index</h2>
+
+<div id="body">
+    <section class="content-wrapper main-content">
+        <table id="hotel" class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayName("Name")</th>
+                </tr>
+            </thead>
+        </table>
+    </section>
+</div>

@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Gallery";
+    Layout = "~/Views/Shared/_LayoutSecondPage.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://localhost:63596/api/ImageGallery/getGalleryImages",
+            type: "Get",
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    var imagePath = '/Content/images/gallery/' + data[i].ImageGalleryPath;
+                    $('<figure class="g_item col-md-3 col-sm-6 g_swimming_pool"><a href=' + imagePath + ' class="hover_effect h_lightbox h_blue"><img src= ' + imagePath + ' class="img-responsive" alt="Image"></a<figure>').appendTo("#images");
+                }
+            },
+            error: function (msg) { alert(msg); }
+        });
+    });
+</script>
+
+<!-- =========== PAGE TITLE ========== -->
+<div class="page_title gradient_overlay" style="background:url(images/xpage_title_bg.jpg.pagespeed.ic.mhkLvKptY0.jpg)">
+    <div class="container">
+        <div class="inner">
+            <h1>Galería</h1>
+            <ol class="breadcrumb">
+                <li>Home</li>
+                <li>Galería</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<!-- =========== MAIN ========== -->
+<main id="gallery">
+    @*<div class="container">
+        <div class="grid_filters">
+            <a href="#" data-filter="*" class="button btn_sm btn_blue active">ALL</a>
+            <a href="#" data-filter=".g_restaurant" class="button btn_sm btn_blue">RESTAURANT</a>
+            <a href="#" data-filter=".g_island" class="button btn_sm btn_blue">ISLAND</a>
+            <a href="#" data-filter=".g_swimming_pool" class="button btn_sm btn_blue">SWIMMING POOL</a>
+            <a href="#" data-filter=".g_spa" class="button btn_sm btn_blue">SPA</a>
+        </div>
+    </div>*@
+    <div class="container">
+        <div class="row">
+            <div class="grid gallery_items image-gallery" id="images">
+            </div>
+        </div>
+    </div>
+</main>
+

@@ -1,0 +1,414 @@
+﻿<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://localhost:63596/api/Hotel/getHotel",
+            type: "Get",
+            success: function (data) {
+                //for (var i = 0; i < data.length; i++) {
+                $("<p'>" + data.History + "</p>").appendTo("#history");
+                $("<p'>" + data.Mission + "</p>").appendTo("#mission");
+                $("<p'>" + data.Vission + "</p>").appendTo("#vision");
+                //}
+            },
+            error: function (msg) { alert(msg); }
+        });
+    });
+</script>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://localhost:63596/api/ImageGallery/getGalleryImages",
+            type: "Get",
+            success: function (data) {
+                var interval = (data.length > 5) ? 5 : data.length;
+                for (var i = 0; i < interval; i++) {
+                    var imagePath = '/Content/images/gallery/' + data[i].ImageGalleryPath;
+                    $('<div class="owl-item cloned" style="width: 261.8px;"><div class="item">' +
+                    '<a class="hover_effect h_yellow h_lightbox" href="' + imagePath + '">' + 
+                    '<img src="' + imagePath + '" alt="Image">' +
+                    '</a></div></div>').appendTo("#gallery_slider");
+                }
+            },
+            error: function (msg) { alert(msg); }
+        });
+    });
+</script>
+
+<!-- ========== REVOLUTION SLIDER ========== -->
+<div id="classic_slider" class="rev_slider" style="display:none">
+    <!-- SLIDE NR. 1 -->
+    <!-- MAIN IMAGE -->
+    <img src=@Url.Content("/Content/images/slider/xslider-1.jpg.pagespeed.ic.BZM-CmXVWa.jpg") alt="Image" title="slider_bg2" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina="">
+</div>
+<!-- ========== HORIZONTAL BOOKING FORM ========== -->
+<div class="hbf">
+    <div class="container">
+        <div class="inner">
+            <form id="booking-form">
+                <div class="col-md-2 md_pr5">
+                    <div class="form-group">
+                        <label>
+                            Your Email
+                            <a href="#" title="Your Email" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Please Type Your Email"> <i class="label_icon_info fa fa-info-circle"></i></a>
+                        </label>
+                        <input class="form-control" name="booking-email" type="email" placeholder="Your Email Address">
+                    </div>
+                </div>
+                <div class="col-md-2 md_p5">
+                    <div class="form-group">
+                        <label>
+                            Room Type
+                            <a href="#" title="Room Type" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Please Select Room Type: Single Room, Double Room or Deluxe Room"> <i class="label_icon_info fa fa-info-circle"></i></a>
+                        </label>
+                        <div class="form_select">
+                            <select name="booking-roomtype" class="form-control" title="Select Room Type" data-header="Room Type">
+                                <option value="Single">Single Room</option>
+                                <option value="Double">Double Room</option>
+                                <option value="Deluxe">Deluxe Room</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="row">
+
+                        <div class="col-md-6 col-sm-6 arrival_date md_pl5 md_nopadding_right">
+                            <div class="form-group">
+                                <label>
+                                    Arrival
+                                    <a href="#" title="Arrival" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Check In from 11:00 am"> <i class="label_icon_info fa fa-info-circle"></i></a>
+                                </label>
+
+                                <div class="form_date">
+                                    <input type="text" class="datepicker form-control md_noborder_right" name="booking-checkin" placeholder="Arrival Date" readonly>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 departure_date md_pr5 md_nopadding_left">
+                            <div class="form-group">
+                                <label>
+                                    Departure
+                                    <a href="#" title="Departure" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Check Out from 12:00 am"> <i class="label_icon_info fa fa-info-circle"></i></a>
+                                </label>
+                                <div class="form_date departure">
+                                    <input type="text" class="datepicker form-control" name="booking-checkout" placeholder="Departure Date" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="row">
+
+                        <div class="col-md-6 col-sm-6 adults md_pl5 md_nopadding_right">
+                            <div class="form-group">
+                                <label>
+                                    Adults
+                                    <a href="#" title="Adults" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="+18 years"> <i class="label_icon_info fa fa-info-circle"></i></a>
+                                </label>
+                                <div class="form_select">
+                                    <select name="booking-adults" class="form-control md_noborder_right" title="Adults" data-header="Adults">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 children md_pr5 md_nopadding_left">
+                            <div class="form-group">
+                                <label>
+                                    Children
+                                    <a href="#" title="Children" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="0-18 years"> <i class="label_icon_info fa fa-info-circle"></i></a>
+                                </label>
+                                <div class="form_select children_select">
+                                    <select name="booking-children" class="form-control" title="Children" data-header="Children">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 md_pl5">
+                    <button type="submit" class="button  btn_blue btn_full">BOOK A ROOM</button>
+                    <div class="advanced_form_link"> <a href="booking-form.html"> Advanced Booking Form </a> </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ========== ABOUT & ROOMS ========== -->
+<section id="about_rooms">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4">
+                <div id="about">
+                    <div class="main_title mt_wave a_left">
+                        <h2>Bienvenidos al Hotel Aurora</h2>
+                    </div>
+                    <p class="main_description a_left">Descripción corta del hotel</p>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div id="rooms">
+                    <div class="main_title mt_wave a_left">
+                        <h2>NUESTRAS HABITACIONES</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <article class="room">
+                                <figure>
+                                    <div class="price">€89 <span>/ night</span></div>
+                                    <a class="hover_effect h_blue h_link" href="room.html">
+                                        <img src=@Url.Content("/Content/images/rooms/xsingle-room.jpg.pagespeed.ic.inoyU7NRmP.jpg") class="img-responsive" alt="Image">
+                                    </a>
+                                    <figcaption>
+                                        <h5><a href="room.html">Habitación Standard</a></h5>
+                                        <span class="f_right"><a href="rooms-list.html" class="button btn_xs btn_blue">VIEW DETAILS</a></span>
+                                    </figcaption>
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="room">
+                                <figure>
+                                    <div class="price">€129 <span>/ night</span></div>
+                                    <a class="hover_effect h_blue h_link" href="room.html">
+                                        <img src=@Url.Content("/Content/images/rooms/xdouble-room.jpg.pagespeed.ic.iiS1TV5TYH.jpg") class="img-responsive" alt="Image">
+                                    </a>
+                                    <figcaption>
+                                        <h5><a href="room.html">Habitación Junior</a></h5>
+                                        <span class="f_right"><a href="room.html" class="button btn_xs btn_blue">VIEW DETAILS</a></span>
+                                    </figcaption>
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article class="room">
+                                <figure>
+                                    <div class="price"> € 189 <span>/ night</span></div>
+                                    <a class="hover_effect h_blue h_link" href="room.html">
+                                        <img src=@Url.Content("/Content/images/rooms/xdeluxe-room.jpg.pagespeed.ic.0up5xG7rE6.jpg") class="img-responsive" alt="Image">
+                                    </a>
+                                    <figcaption>
+                                        <h5><a href="room.html">Habitación Suite</a></h5>
+                                        <span class="f_right"><a href="room.html" class="button btn_xs btn_blue">VIEW DETAILS</a></span>
+                                    </figcaption>
+                                </figure>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ========== ACERCA DE ========== -->
+<section id="testimonials_style_2" class="grey_bg">
+    <div class="container">
+        <div class="main_title mt_wave a_center">
+            <h2>ACERDA DE</h2>
+        </div>
+        <div class="row">
+            <!-- ITEM -->
+            <div class="col-md-4">
+                <div class="review_item">
+                    <div class="review_content" id="mission">
+                        <h3>Misión</h3>
+                    </div>
+                    <div class="review_author">
+                        <img src=@Url.Content("/Content/images/mision.png") alt="Image">
+                    </div>
+                </div>
+            </div>
+            <!-- ITEM -->
+            <div class="col-md-4">
+                <div class="review_item">
+                    <div class="review_content" id="vision">
+                        <h3>Visión</h3>
+                    </div>
+                    <div class="review_author">
+                        <img src=@Url.Content("/Content/images/vision.png") alt="Image">
+                    </div>
+                </div>
+            </div>
+            <!-- ITEM -->
+            <div class="col-md-4">
+                <div class="review_item">
+                    <div class="review_content" id="history">
+                        <h3>Historia</h3>
+                    </div>
+                    <div class="review_author">
+                        <img src=@Url.Content("/Content/images/history.png") alt="Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FEATURES ========== -->
+<section class="lightgrey_bg" id="features">
+    <div class="container">
+        <div class="main_title mt_wave a_center">
+            <h2>Facilidades</h2>
+        </div>
+        <p class="main_description a_center">Breve descripcion (Opcional)</p>
+
+        <div class="row">
+            <div class="col-md-7">
+                <div data-slider-id="features" id="features_slider" class="owl-carousel">
+                    <div><img src=@Url.Content("/Content/images/xrestaurant.jpg.pagespeed.ic.90haY4iLl6.jpg") class="img-responsive" alt="Image"></div>
+                    <div><img src=@Url.Content("/Content/images/xspa.jpg.pagespeed.ic.NbZLXcYIK5.jpg") class="img-responsive" alt="Image"></div>
+                    <div><img src=@Url.Content("/Content/images/xconference.jpg.pagespeed.ic.4av6tMl2Q_.jpg") class="img-responsive" alt="Image"></div>
+                    <div><img src=@Url.Content("/Content/images/xswimming.jpg.pagespeed.ic.BZFRrSnONE.jpg") class="img-responsive" alt="Image"></div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="owl-thumbs" data-slider-id="features">
+                    <div class="owl-thumb-item">
+                        <span class="media-left"><i class="flaticon-person"></i></span>
+                        <div class="media-body">
+                            <h5>Facilidad 1</h5>
+                            <p>Descripción.</p>
+                        </div>
+                    </div>
+                    <div class="owl-thumb-item">
+                        <span class="media-left"><i class="flaticon-beach"></i></span>
+                        <div class="media-body">
+                            <h5>Facilidad 2</h5>
+                            <p>Descripción.</p>
+                        </div>
+                    </div>
+                    <div class="owl-thumb-item">
+                        <span class="media-left"><i class="flaticon-business"></i></span>
+                        <div class="media-body">
+                            <h5>Facilidad 3</h5>
+                            <p>Descripción.</p>
+                        </div>
+                    </div>
+                    <div class="owl-thumb-item">
+                        <span class="media-left"><i class="flaticon-food"></i></span>
+                        <div class="media-body">
+                            <h5>Facilidad 4</h5>
+                            <p>Descripción.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== GALLERY ========== -->
+<section id="gallery" class="blue_bg">
+    <div class="container">
+        <div class="main_title mt_wave mt_white a_center">
+            <h2>GALERÍA</h2>
+        </div>
+    </div>
+
+    <div id="gallery_slider" class="owl-carousel image-gallery">
+
+    </div>
+    
+    
+
+</section>
+
+<div class="container">
+    <div class="mt40 a_center">
+        <a class="button btn_sm btn_dark upper" href="@Url.Action("Gallery", "Home")">View Full Gallery</a>
+    </div>
+</div>
+
+ <!-- ========== CONTACT ========== -->
+<section class="white_bg" id="contact">
+    <div class="container">
+        <div class="main_title mt_wave a_center">
+            <h2>Ubicación - Contacto</h2>
+        </div>
+        <p class="main_description a_center">Descripción ubicación del hotel</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="map-canvas"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="contact-items">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="contact-item">
+                                <i class="glyphicon glyphicon-map-marker"></i>
+                                <h6>Navagio Zakynthos</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="contact-item">
+                                <i class="glyphicon glyphicon-phone-alt"></i>
+                                <h6>1-888-123-4567</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="contact-item">
+                                <i class="fa fa-envelope"></i>
+                                <h6>contact@site.com</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form id="contact-form" name="contact-form">
+                    <div id="contact-result"></div>
+                    <div class="form-group">
+                        <input class="form-control" name="name" placeholder="Your Name" type="text">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" name="email" placeholder="Your Email Address" type="email">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="message" placeholder="Your Message"></textarea>
+                    </div>
+                    <button class="button btn_lg btn_blue btn_full upper" type="submit"><i class="fa fa-location-arrow"></i>Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========== SUBSCRIBE ========== -->
+<section id="subscribe" class="gradient_overlay">
+    <div class="inner">
+        <div class="container">
+            <div class="main_title mt_wave mt_white a_center">
+                <h2>SUBSCRIBE TO OUR NEWSLETTER</h2>
+            </div>
+            <p class="main_description md_white a_center">Subscribe to our newsletter to receive exclusive offers and the latest news.</p>
+            <form id="subscribe-form" name="subscribe">
+                <div class="form-group">
+                    <input type="email" name="subscribe-email" class="form-control" placeholder="Enter your email">
+                    <button class="button btn_lg btn_yellow" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
