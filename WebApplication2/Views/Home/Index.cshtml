@@ -47,7 +47,6 @@
             type: "Get",
             success: function (data) {
                 for (var i = 0; i < data.length; i++) {
-
                     var imagePath = data[i].ImageAdvertisingPath;
                     $("<p'>" + imagePath + " - " + i + "</p>").appendTo("#advertising");
 
@@ -243,7 +242,7 @@
     </div>
 </section>
 
-<!-- ========== ACERCA DE ========== -->
+<!-- ========== SOBRE NOSOTROS ========== -->
 <section id="testimonials_style_2" class="grey_bg">
     <div class="container">
         <div class="main_title mt_wave a_center">
@@ -286,6 +285,28 @@
         </div>
     </div>
 </section>
+
+<!-- ========== GALLERY ========== -->
+<section id="gallery" class="blue_bg">
+    <div class="container">
+        <div class="main_title mt_wave mt_white a_center">
+            <h2>GALERÍA</h2>
+        </div>
+    </div>
+
+    <div id="gallery_slider" class="owl-carousel image-gallery">
+
+    </div>
+
+
+
+</section>
+
+<div class="container">
+    <div class="mt40 a_center">
+        <a class="button btn_sm btn_dark upper" href="@Url.Action("Gallery", "Home")">View Full Gallery</a>
+    </div>
+</div>
 
 <!-- ========== FEATURES ========== -->
 <section class="lightgrey_bg" id="features">
@@ -339,28 +360,6 @@
         </div>
     </div>
 </section>
-
-<!-- ========== GALLERY ========== -->
-<section id="gallery" class="blue_bg">
-    <div class="container">
-        <div class="main_title mt_wave mt_white a_center">
-            <h2>GALERÍA</h2>
-        </div>
-    </div>
-
-    <div id="gallery_slider" class="owl-carousel image-gallery">
-
-    </div>
-    
-    
-
-</section>
-
-<div class="container">
-    <div class="mt40 a_center">
-        <a class="button btn_sm btn_dark upper" href="@Url.Action("Gallery", "Home")">View Full Gallery</a>
-    </div>
-</div>
 
  <!-- ========== CONTACT ========== -->
 <section class="white_bg" id="contact">
