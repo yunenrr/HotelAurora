@@ -25,7 +25,8 @@ namespace WebApplication2
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/A.css",
-                      "~/Content/B.css"
+                      "~/Content/B.css",
+                      "~/Content/estilos.css"
                       ));
 
             bundles.Add(new ScriptBundle("~/Content/js").Include(
@@ -37,7 +38,8 @@ namespace WebApplication2
                     "~/Content/js/script6.js",
                     "~/Content/js/script7.js",
                     "~/Content/js/script8.js",
-                    "~/Content/js/script9.js"
+                    "~/Content/js/script9.js",
+                    "~/Content/js/slider.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/Content/revolution/js").Include(
