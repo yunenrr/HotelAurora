@@ -234,14 +234,17 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Business\AdvertisingBusiness.cs" />
+    <Compile Include="Business\FacilityBusiness.cs" />
     <Compile Include="Business\HotelBusiness.cs" />
     <Compile Include="Business\ImageGalleryBusiness.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FacilityController.cs" />
     <Compile Include="Controllers\AdvertisingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\ImageGalleryController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Data\FacilityData.cs" />
     <Compile Include="Data\AdvertisingData.cs" />
     <Compile Include="Data\HotelData.cs" />
     <Compile Include="Data\ImageGalleryData.cs" />
@@ -250,6 +253,7 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Facility.cs" />
     <Compile Include="Models\Advertising.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -478,8 +482,8 @@
     <Content Include="Content\images\xfavicon-apple.png.pagespeed.ic.vIS_cO_Xol.png" />
     <Content Include="Content\images\xfavicon.png.pagespeed.ic.jEeqH3LLuL.png" />
     <Content Include="Content\images\xpage_title_bg.jpg.pagespeed.ic.mhkLvKptY0.jpg" />
-    <Content Include="Content\images\xrestaurant.jpg.pagespeed.ic.90haY4iLl6.jpg" />
-    <Content Include="Content\images\xspa.jpg.pagespeed.ic.NbZLXcYIK5.jpg" />
+    <Content Include="Content\images\facilidad-restaurante.jpg" />
+    <Content Include="Content\images\facilidad-spa.jpg" />
     <Content Include="Content\images\xsubscribe_bg.jpg.pagespeed.ic.Ps-RYH9jTY.jpg" />
     <Content Include="Content\images\xswimming.jpg.pagespeed.ic.BZFRrSnONE.jpg" />
     <Content Include="Content\images\xvideo_bg.jpg.pagespeed.ic.bj2AomhvpW.jpg" />
@@ -616,6 +620,7 @@
     <Folder Include="Content\css\" />
     <Folder Include="Content\fonts\" />
     <Folder Include="Content\videos\" />
+    <Folder Include="Views\Facility\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
