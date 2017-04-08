@@ -4,12 +4,11 @@
         $.ajax({
             url: "http://localhost:63596/api/Hotel/getHotel",
             type: "Get",
-            success: function (data) {
-                //for (var i = 0; i < data.length; i++) {
+            success: function (data)
+            {
                 $("<p'>" + data.History + "</p>").appendTo("#history");
                 $("<p'>" + data.Mission + "</p>").appendTo("#mission");
                 $("<p'>" + data.Vission + "</p>").appendTo("#vision");
-                //}
             },
             error: function (msg) { alert(msg); }
         });
@@ -18,23 +17,58 @@
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
-        $.ajax({
-            url: "http://localhost:63596/api/ImageGallery/getGalleryImages",
-            type: "Get",
-            success: function (data) {
-                var interval = (data.length > 5) ? 5 : data.length;
-                for (var i = 0; i < interval; i++) {
-                    var imagePath = '/Content/images/gallery/' + data[i].ImageGalleryPath;
-                    $('<div class="owl-item cloned" style="width: 261.8px;"><div class="item">' +
-                    '<a class="hover_effect h_yellow h_lightbox" href="' + imagePath + '">' + 
-                    '<img src="' + imagePath + '" alt="Image">' +
-                    '</a></div></div>').appendTo("#gallery_slider");
+    $(document).ready
+    (
+        function ()
+        {
+            $.ajax({
+                url: "http://localhost:63596/api/ImageGallery/getGalleryImages",
+                type: "Get",
+                success: function (data)
+                {
+                    var interval = (data.length > 5) ? 5 : data.length;
+                    for (var i = 0; i < interval; i++) {
+                        var imagePath = '/Content/images/gallery/' + data[i].ImageGalleryPath;
+                        $('<div class="owl-item cloned" style="width: 261.8px;"><div class="item">' +
+                        '<a class="hover_effect h_yellow h_lightbox" href="' + imagePath + '">' + 
+                        '<img src="' + imagePath + '" alt="Image">' +
+                        '</a></div></div>').appendTo("#gallery_slider");
                 }
             },
             error: function (msg) { alert(msg); }
-        });
-    });
+            });
+        }
+    );
+</script>
+<script type="text/javascript">
+    $(document).ready
+    (
+        function ()
+        {
+            $.ajax({
+                url: "http://localhost:63596/api/Facility/getAllFacility",
+                type: "Get",
+                success: function (data)
+                {
+                    var interval = data.length;
+                    var arrayImage;
+                    for (var i = 0; i < interval; i++)
+                    {
+                        var text = '<div class="owl-thumb-item">'+
+                        '<div class="media-body">'+
+                        '<h5>' + data[i].NameFacility + '</h5>' +
+                        '<p>' + data[i].DescriptionFacility + '</p>' +
+                        '</div>' +
+                        '</div>';
+                        var img = '<div><img src="/Content/images/' + data[i].PathImageFacility + '") class="img-responsive" alt="Image"></div>';
+                        $("#features_slider").append(img);
+                        $("#features_text").append(text);
+                    }
+                },
+                error: function (msg) { alert(msg); }
+            });
+        }
+    );
 </script>
 
 <!-- ========== REVOLUTION SLIDER ========== -->
@@ -273,47 +307,13 @@
         <div class="main_title mt_wave a_center">
             <h2>Facilidades</h2>
         </div>
-        <p class="main_description a_center">Breve descripcion (Opcional)</p>
-
         <div class="row">
             <div class="col-md-7">
                 <div data-slider-id="features" id="features_slider" class="owl-carousel">
-                    <div><img src=@Url.Content("/Content/images/xrestaurant.jpg.pagespeed.ic.90haY4iLl6.jpg") class="img-responsive" alt="Image"></div>
-                    <div><img src=@Url.Content("/Content/images/xspa.jpg.pagespeed.ic.NbZLXcYIK5.jpg") class="img-responsive" alt="Image"></div>
-                    <div><img src=@Url.Content("/Content/images/xconference.jpg.pagespeed.ic.4av6tMl2Q_.jpg") class="img-responsive" alt="Image"></div>
-                    <div><img src=@Url.Content("/Content/images/xswimming.jpg.pagespeed.ic.BZFRrSnONE.jpg") class="img-responsive" alt="Image"></div>
                 </div>
             </div>
             <div class="col-md-5">
-                <div class="owl-thumbs" data-slider-id="features">
-                    <div class="owl-thumb-item">
-                        <span class="media-left"><i class="flaticon-person"></i></span>
-                        <div class="media-body">
-                            <h5>Facilidad 1</h5>
-                            <p>Descripción.</p>
-                        </div>
-                    </div>
-                    <div class="owl-thumb-item">
-                        <span class="media-left"><i class="flaticon-beach"></i></span>
-                        <div class="media-body">
-                            <h5>Facilidad 2</h5>
-                            <p>Descripción.</p>
-                        </div>
-                    </div>
-                    <div class="owl-thumb-item">
-                        <span class="media-left"><i class="flaticon-business"></i></span>
-                        <div class="media-body">
-                            <h5>Facilidad 3</h5>
-                            <p>Descripción.</p>
-                        </div>
-                    </div>
-                    <div class="owl-thumb-item">
-                        <span class="media-left"><i class="flaticon-food"></i></span>
-                        <div class="media-body">
-                            <h5>Facilidad 4</h5>
-                            <p>Descripción.</p>
-                        </div>
-                    </div>
+                <div class="owl-thumbs" data-slider-id="features" id="features_text">
                 </div>
             </div>
         </div>
