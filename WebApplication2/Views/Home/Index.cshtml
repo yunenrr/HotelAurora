@@ -47,10 +47,12 @@
             type: "Get",
             success: function (data) {
                 for (var i = 0; i < data.length; i++) {
-                    var imagePath = data[i].ImageAdvertisingPath;
-                    $("<p'>" + imagePath + " - " + i + "</p>").appendTo("#advertising");
+                    var imagePath = '/Content/images/publicidad/' + data[i].ImageAdvertisingPath;
 
-             }
+                    $('<section><a href="' + data[i].UrlAdvertising +
+                        '" target="_blank"><img src="' + imagePath +
+                        '" alt=""></a></section>').appendTo("#sliderDa");
+                }
             },
             error: function (msg) { alert(msg); }
         });
@@ -183,6 +185,16 @@
                     <div class="main_title mt_wave a_left">
                         <h2>Bienvenidos al Hotel Aurora</h2>
                     </div>
+
+                    
+                </div>
+                <div id="c-sliderDa">
+                    <div id="sliderDa">
+                        <!-- ========== se carga publicidad ========== -->
+
+                    </div>
+                    @*<div id="btn-prev">&#60</div>
+                    <div id="btn-next">&#62</div>*@
                 </div>
             </div>
 

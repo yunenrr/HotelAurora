@@ -1,12 +1,14 @@
 
 
 #c-sliderDa{
-	margin: auto;
-	width: 100%;
-	max-width: 95%;
+	top: 60px;
+	margin-left: 65%;
+	
+	width: 180%;
+	max-width: 600%;
 	position: relative; 
-	/*overflow: hidden;
-	box-shadow: 0 0 0 10px #fff,
+	overflow: hidden;
+	/*box-shadow: 0 0 0 10px #fff,
 				0 15px 50px;*/
 }
 
@@ -31,6 +33,10 @@
 	display: block;
 	width: 90%;
 	height: 90%;
+
+	transition-property: all;
+	transition-duration: 2s;
+	transition-timing-function: ease-in-out; 
 }
 
 #btn-prev, #btn-next{
@@ -60,3 +66,12 @@
 #btn-next{
 	right: 10px;
 }
+
+
+
+#sliderDa img:hover{
+	
+	transform: scale(1.5, 1.5);
+}
+
+
