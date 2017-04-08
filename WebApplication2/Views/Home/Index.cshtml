@@ -40,7 +40,36 @@
         });
     });
 </script>
-
+<script type="text/javascript">
+    $(document).ready
+    (
+        function ()
+        {
+            $.ajax({
+                url: "http://localhost:63596/api/Facility/getAllFacility",
+                type: "Get",
+                success: function (data)
+                {
+                    var interval = data.length;
+                    var arrayImage;
+                    for (var i = 0; i < interval; i++)
+                    {
+                        var text = '<div class="owl-thumb-item">'+
+                        '<div class="media-body">'+
+                        '<h5>' + data[i].NameFacility + '</h5>' +
+                        '<p>' + data[i].DescriptionFacility + '</p>' +
+                        '</div>' +
+                        '</div>';
+                        var img = '<div><img src="/Content/images/' + data[i].PathImageFacility + '") class="img-responsive" alt="Image"></div>';
+                        $("#features_slider").append(img);
+                        $("#features_text").append(text);
+                    }
+                },
+                error: function (msg) { alert(msg); }
+            });
+        }
+    );
+</script>
 <script type="text/javascript">
     $(document).ready(function () {
         $.ajax({
