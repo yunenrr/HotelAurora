@@ -70,24 +70,7 @@
         }
     );
 </script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $.ajax({
-            url: "http://localhost:63596/api/Advertising/getAdvertising",
-            type: "Get",
-            success: function (data) {
-                for (var i = 0; i < data.length; i++) {
-                    var imagePath = '/Content/images/publicidad/' + data[i].ImageAdvertisingPath;
 
-                    $('<section><a href="' + data[i].UrlAdvertising +
-                        '" target="_blank"><img src="' + imagePath +
-                        '" alt=""></a></section>').appendTo("#sliderDa");
-                }
-            },
-            error: function (msg) { alert(msg); }
-        });
-    });
-</script>
 
 <!-- ========== REVOLUTION SLIDER ========== -->
 <div id="classic_slider" class="rev_slider" style="display:none">
@@ -218,14 +201,7 @@
 
                     
                 </div>
-                <div id="c-sliderDa">
-                    <div id="sliderDa">
-                        <!-- ========== se carga publicidad ========== -->
-
-                    </div>
-                    @*<div id="btn-prev">&#60</div>
-                    <div id="btn-next">&#62</div>*@
-                </div>
+                
             </div>
 
             <div class="col-md-8">
