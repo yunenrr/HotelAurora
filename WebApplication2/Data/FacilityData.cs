@@ -41,6 +41,7 @@ namespace WebApplication2.Data
 
             //definir el data set
             DataSet datasetFacility = new DataSet();
+            List<Facility> facilityList = new List<Facility>();
 
             //dataset para guardar los resultados de la consulta
             sqlDataAdapterProperty.Fill(datasetFacility, "tbfacility");
@@ -49,7 +50,6 @@ namespace WebApplication2.Data
             sqlDataAdapterProperty.SelectCommand.Connection.Close();
 
             DataRowCollection dataRowCollection = datasetFacility.Tables["tbfacility"].Rows;
-            List<Facility> facilityList = new List<Facility>();
 
             foreach (DataRow currentRow in dataRowCollection)
             {
@@ -57,11 +57,13 @@ namespace WebApplication2.Data
                 string nameFacility = currentRow["facility"].ToString();
                 string descriptionFacility = currentRow["descriptionfacility"].ToString();
                 string pathImageFacility = currentRow["imagefacilitypath"].ToString();
-                Facility facility = new Facility(idFacility,nameFacility,descriptionFacility,pathImageFacility);
+                Facility facility = new Facility(idFacility, nameFacility, descriptionFacility, pathImageFacility);
                 facilityList.Add(facility);
             }
 
             return facilityList;
         }//Fin del método
+
+        ~FacilityData() { }
     }//Fin de la clase
 }

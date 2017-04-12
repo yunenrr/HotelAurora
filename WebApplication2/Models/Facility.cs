@@ -69,5 +69,6 @@ namespace WebApplication2.Models
                 pathImageFacility = value;
             }
         }
+        ~Facility() { }
     }//Fin de la clase
 }

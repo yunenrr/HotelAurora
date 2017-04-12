@@ -27,5 +27,7 @@ namespace WebApplication2.Business
         {
             return this.facilityData.getAllFacility();
         }//Fin del método
+
+        ~FacilityBusiness() { }
     }//Fin de la clase
 }

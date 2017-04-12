@@ -41,34 +41,87 @@
     });
 </script>
 <script type="text/javascript">
-    $(document).ready
-    (
-        function ()
-        {
-            $.ajax({
-                url: "http://localhost:63596/api/Facility/getAllFacility",
-                type: "Get",
-                success: function (data)
+    /**
+    Función que insertar las imágenes de las facilidades
+    */
+    function insertFacilityImage()
+    {
+        var img = '';
+        $.ajax
+        ({
+            url: "http://localhost:63596/api/Facility/getAllFacility",
+            type: "Get",
+            success: function (data)
+            {
+                var interval = data.length;
+
+                for (var i = 0; i < interval; i++)
                 {
-                    var interval = data.length;
-                    var arrayImage;
-                    for (var i = 0; i < interval; i++)
-                    {
-                        var text = '<div class="owl-thumb-item">'+
-                        '<div class="media-body">'+
-                        '<h5>' + data[i].NameFacility + '</h5>' +
-                        '<p>' + data[i].DescriptionFacility + '</p>' +
-                        '</div>' +
+                    img += '<div><img src="/Content/images/' + data[i].PathImageFacility + '" class="img-responsive" alt="Image"></div>';
+                }//Fin del for
+                $("#div-facility").html('<div class="owl-carousel" id="features_slider" data-slider-id="features">' + img + '</div>');
+            },
+            error: function (msg) { alert(msg); }
+        });
+    }//Fin de la función insertFacilityImage
+
+    /**
+    Función que insertar el nombre y descripción de las facilidades.
+    */
+    function insertFacilityText()
+    {
+        var text = '<div class="owl-thumbs" data-slider-id="features">';
+        $.ajax
+        ({
+            url: "http://localhost:63596/api/Facility/getAllFacility",
+            type: "Get",
+            success: function (data) {
+                var interval = data.length;
+
+                for (var i = 0; i < interval; i++) {
+                    text += '<div class="owl-thumb-item' + (i === 0 ? " active" : "") + '">' +
+                    '<div class="media-body">' +
+                    '<h5>' + data[i].NameFacility + '</h5>' +
+                    '<p>' + data[i].DescriptionFacility + '</p>' +
+                    '</div>' +
+                    '</div>';
+                }//Fin del for
+                text += '</div>';
+                $("#div_facility_text").html(text);
+            },
+            error: function (msg) { alert(msg); }
+        });
+    }//Fin de la función insertFacilityText
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://localhost:63596/api/RoomType/getAllRoomType",
+            type: "Get",
+            success: function (data)
+            {
+                for (var i = 0; i < data.length; i++)
+                {
+                    var temp = '<div class="col-md-4">'+
+                            '<article class="room">'+
+                                '<figure>'+
+                                    '<div class="price">¢' + data[i].PriceRoomType + '<span>/ noche</span></div>' +
+                                    '<a class="hover_effect h_blue h_link" href="../room/' + data[i].IdRoomType + '">' +
+                                        '<img src="/Content/images/rooms/'+data[i].ImagePathRoomType+'" class="img-responsive" alt="Image">'+
+                                    '</a>'+
+                                    '<figcaption>'+
+                                        '<h5><a href="../room/' + data[i].IdRoomType + '">' + data[i].NameRoomType + '</a></h5>' +
+                                        '<span class="f_right"><a href="rooms-list.html" class="button btn_xs btn_blue">Más información</a></span>'+
+                                    '</figcaption>'+
+                                '</figure>'+
+                            '</article>'+
                         '</div>';
-                        var img = '<div><img src="/Content/images/' + data[i].PathImageFacility + '") class="img-responsive" alt="Image"></div>';
-                        $("#features_slider").append(img);
-                        $("#features_text").append(text);
-                    }
-                },
-                error: function (msg) { alert(msg); }
-            });
-        }
-    );
+                    $("#div-rooms").append(temp);
+                }//Fin del for
+            },
+            error: function (msg) { alert(msg); }
+        });
+    });
 </script>
 
 
@@ -207,51 +260,9 @@
             <div class="col-md-8">
                 <div id="rooms">
                     <div class="main_title mt_wave a_left">
-                        <h2>NUESTRAS HABITACIONES</h2>
+                        <h2>TIPOS DE HABITACIONES</h2>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <article class="room">
-                                <figure>
-                                    <div class="price">€89 <span>/ night</span></div>
-                                    <a class="hover_effect h_blue h_link" href="room.html">
-                                        <img src=@Url.Content("/Content/images/rooms/xsingle-room.jpg.pagespeed.ic.inoyU7NRmP.jpg") class="img-responsive" alt="Image">
-                                    </a>
-                                    <figcaption>
-                                        <h5><a href="room.html">Habitación Standard</a></h5>
-                                        <span class="f_right"><a href="rooms-list.html" class="button btn_xs btn_blue">VIEW DETAILS</a></span>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="col-md-4">
-                            <article class="room">
-                                <figure>
-                                    <div class="price">€129 <span>/ night</span></div>
-                                    <a class="hover_effect h_blue h_link" href="room.html">
-                                        <img src=@Url.Content("/Content/images/rooms/xdouble-room.jpg.pagespeed.ic.iiS1TV5TYH.jpg") class="img-responsive" alt="Image">
-                                    </a>
-                                    <figcaption>
-                                        <h5><a href="room.html">Habitación Junior</a></h5>
-                                        <span class="f_right"><a href="room.html" class="button btn_xs btn_blue">VIEW DETAILS</a></span>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
-                        <div class="col-md-4">
-                            <article class="room">
-                                <figure>
-                                    <div class="price"> € 189 <span>/ night</span></div>
-                                    <a class="hover_effect h_blue h_link" href="room.html">
-                                        <img src=@Url.Content("/Content/images/rooms/xdeluxe-room.jpg.pagespeed.ic.0up5xG7rE6.jpg") class="img-responsive" alt="Image">
-                                    </a>
-                                    <figcaption>
-                                        <h5><a href="room.html">Habitación Suite</a></h5>
-                                        <span class="f_right"><a href="room.html" class="button btn_xs btn_blue">VIEW DETAILS</a></span>
-                                    </figcaption>
-                                </figure>
-                            </article>
-                        </div>
+                    <div class="row" id="div-rooms">
                     </div>
                 </div>
             </div>
@@ -330,16 +341,14 @@
 <section class="lightgrey_bg" id="features">
     <div class="container">
         <div class="main_title mt_wave a_center">
-            <h2>Facilidades</h2>
+            <h2>FACILIDADES</h2>
         </div>
         <div class="row">
-            <div class="col-md-7">
-                <div data-slider-id="features" id="features_slider" class="owl-carousel">
-                </div>
+            <div class="col-md-7" id="div-facility">
+                <script>insertFacilityImage()</script>
             </div>
-            <div class="col-md-5">
-                <div class="owl-thumbs" data-slider-id="features" id="features_text">
-                </div>
+            <div class="col-md-5" id="div_facility_text">
+                <script>insertFacilityText()</script>
             </div>
         </div>
     </div>

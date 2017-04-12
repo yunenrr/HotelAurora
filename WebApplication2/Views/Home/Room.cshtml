@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewBag.Title = "Room";
+    Layout = "~/Views/Shared/_LayoutSecondPage.cshtml";
+}
+<script type="text/javascript">
+    $(document).ready
+    (
+        function ()
+        {
+            $(".type_room").text("Aquí va el tipo");
+        }
+    );
+</script>
+<!-- =========== PAGE TITLE ========== -->
+<div class="page_title gradient_overlay" style="background:url(images/xpage_title_bg.jpg.pagespeed.ic.mhkLvKptY0.jpg)">
+    <div class="container">
+        <div class="inner">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <h1 class="type_room"></h1>
+                    <ol class="breadcrumb">
+                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                        <li>Habitaciones</li>
+                        <li class="type_room"></li>
+                    </ol>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="price">
+                        <div class="inner">
+                            €90 <span>per night</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =========== MAIN ========== -->
+<main id="room_page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <!-- =========== SLIDER ========== -->
+                <div class="slider">
+                    <div id="slider-larg" class="owl-carousel image-gallery">
+                        <!-- ITEM -->
+                        <div class="item lightbox-image-icon">
+                            <a href="images/rooms/single-room/single-room1.jpg" class="hover_effect h_lightbox h_blue">
+                                <img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room1.jpg.pagespeed.ic.jwGzbRUnRQ.jpg")" alt="Image">
+                            </a>
+                        </div>
+                        <!-- ITEM -->
+                        <div class="item lightbox-image-icon">
+                            <a href="images/rooms/single-room/single-room2.jpg" class="hover_effect h_lightbox h_blue">
+                                <img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room2.jpg.pagespeed.ic.yUejSzFalB.jpg")" alt="Image">
+                            </a>
+                        </div>
+                        <!-- ITEM -->
+                        <div class="item lightbox-image-icon">
+                            <a href="images/rooms/single-room/single-room3.jpg" class="hover_effect h_lightbox h_blue">
+                                <img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room3.jpg.pagespeed.ic.FNO4IyAeo-.jpg")" alt="Image">
+                            </a>
+                        </div>
+                        <!-- ITEM -->
+                        <div class="item lightbox-image-icon">
+                            <a href="images/rooms/single-room/single-room4.jpg" class="hover_effect h_lightbox h_blue">
+                                <img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room4.jpg.pagespeed.ic.XEHPYRshuk.jpg")" alt="Image">
+                            </a>
+                        </div>
+                        <!-- ITEM -->
+                        <div class="item lightbox-image-icon">
+                            <a href="images/rooms/single-room/single-room5.jpg" class="hover_effect h_lightbox h_blue">
+                                <img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room5.jpg.pagespeed.ic.Kv3Tb16MOk.jpg")" alt="Image">
+                            </a>
+                        </div>
+                        <!-- ITEM -->
+                        <div class="item lightbox-image-icon">
+                            <a href="images/rooms/single-room/single-room6.jpg" class="hover_effect h_lightbox h_blue">
+                                <img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room6.jpg.pagespeed.ic.0TLunMtsoU.jpg")" alt="Image">
+                            </a>
+                        </div>
+                        <!-- ITEM -->
+                        <div class="item lightbox-image-icon">
+                            <a href="images/rooms/single-room/single-room7.jpg" class="hover_effect h_lightbox h_blue">
+                                <img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room7.jpg.pagespeed.ic.ud1WYMC2ev.jpg")" alt="Image">
+                            </a>
+                        </div>
+                        <!-- ITEM -->
+                        <div class="item  lightbox-image-icon">
+                            <a href="images/rooms/single-room/single-room8.jpg" class="hover_effect h_lightbox h_blue">
+                                <img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room8.jpg.pagespeed.ic.ZQ20A95HWi.jpg")" alt="Image">
+                            </a>
+                        </div>
+                    </div>
+                    <div id="thumbs" class="owl-carousel">
+                        <!-- ITEM -->
+                        <div class="item"><img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room-thumb1.jpg.pagespeed.ic.MS0ht-zUbB.jpg")" alt="Image"></div>
+                        <!-- ITEM -->
+                        <div class="item"><img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room-thumb2.jpg.pagespeed.ic.tuieH-gjao.jpg")" alt="Image"></div>
+                        <!-- ITEM -->
+                        <div class="item"><img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room-thumb3.jpg.pagespeed.ic.GMS5RBMckt.jpg")" alt="Image"></div>
+                        <!-- ITEM -->
+                        <div class="item"><img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room-thumb4.jpg.pagespeed.ic.5l7Xo9ltB3.jpg")" alt="Image"></div>
+                        <!-- ITEM -->
+                        <div class="item"><img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room-thumb5.jpg.pagespeed.ic.FzigyGAVo4.jpg")" alt="Image"></div>
+                        <!-- ITEM -->
+                        <div class="item"><img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room-thumb6.jpg.pagespeed.ic.HhM-AL4up5.jpg")" alt="Image"></div>
+                        <!-- ITEM -->
+                        <div class="item"><img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room-thumb7.jpg.pagespeed.ic.DIoCcZPspP.jpg")" alt="Image"></div>
+                        <!-- ITEM -->
+                        <div class="item"><img class="img-responsive" src="@Url.Content("/Content/images/rooms/single-room/xsingle-room-thumb8.jpg.pagespeed.ic.fnYiaUAqqd.jpg")" alt="Image"></div>
+                    </div>
+                </div><!-- Fin del slider-->
+                <div class="main_title mt50">
+                    <h2>Breve descripción sobre la habitación</h2>
+                </div><!--Fin del main_title mt50-->
+                <p>Aquí va la descripción</p>
+                <div class="main_title t_style a_left s_title mt50">
+                    <div class="c_inner">
+                        <h2 class="c_title">Otra información de la habitación</h2>
+                    </div>
+                </div>
+                <div class="room_facilitys_list">
+                    <div class="all_facility_list">
+                        <div class="col-sm-4 nopadding">
+                            <ul class="list-unstyled">
+                                <li><i class="fa fa-check"></i>Double Bed</li>
+                                <li><i class="fa fa-check"></i>80 Sq mt</li>
+                                <li><i class="fa fa-check"></i>6 Persons</li>
+                                <li><i class="fa fa-check"></i>Free Internet</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 nopadding">
+                            <ul class="list-unstyled">
+                                <li><i class="fa fa-check"></i>Free Wi-Fi</li>
+                                <li><i class="fa fa-check"></i>Breakfast Include</li>
+                                <li><i class="fa fa-check"></i>Private Balcony</li>
+                                <li class="no"><i class="fa fa-times"></i>Free Newspaper</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 nopadding_left">
+                            <ul class="list-unstyled">
+                                <li class="no"><i class="fa fa-times"></i>Flat Screen Tv</li>
+                                <li><i class="fa fa-check"></i>Full Ac</li>
+                                <li class="no"><i class="fa fa-times"></i>Beach View</li>
+                                <li><i class="fa fa-check"></i>Room Service</li>
+                            </ul>
+                        </div>
+                    </div><!-- Fin del all_facility_list-->
+                </div><!-- Fin del room_facilitys_list-->
+                <div class="similar_rooms">
+                    <div class="main_title t_style5 l_blue s_title a_left">
+                        <div class="c_inner">
+                            <h2 class="c_title">Habitaciones similares</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <article>
+                                <figure>
+                                    <a href="room.html" class="hover_effect h_blue h_link"><img src="@Url.Content("/Content/images/rooms/xsingle-room.jpg.pagespeed.ic.inoyU7NRmP.jpg")" alt="Image" class="img-responsive"></a>
+                                    <div class="price">€99<span> night</span></div>
+                                    <figcaption>
+                                        <h4><a href="room.html">Double Room</a></h4>
+                                    </figcaption>
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article>
+                                <figure>
+                                    <a href="room.html" class="hover_effect h_blue h_link"><img src="@Url.Content("/Content/images/rooms/xdouble-room.jpg.pagespeed.ic.iiS1TV5TYH.jpg")" alt="Image" class="img-responsive"></a>
+                                    <div class="price">€129<span> night</span></div>
+                                    <figcaption>
+                                        <h4><a href="room.html">Single Room </a></h4>
+                                    </figcaption>
+                                </figure>
+                            </article>
+                        </div>
+                        <div class="col-md-4">
+                            <article>
+                                <figure>
+                                    <a href="room.html" class="hover_effect h_blue h_link"><img src="@Url.Content("/Content/images/rooms/xdeluxe-room.jpg.pagespeed.ic.0up5xG7rE6.jpg")" alt="Image" class="img-responsive"></a>
+                                    <div class="price">€189<span> night</span></div>
+                                    <figcaption>
+                                        <h4><a href="room.html">Deluxe Room </a></h4>
+                                    </figcaption>
+                                </figure>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Fin del col-md-8-->
+        </div><!-- Fin del row-->
+    </div><!-- Fin del container-->
+</main><!-- Fin del room_page -->
