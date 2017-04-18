@@ -11381,6 +11381,19 @@ section {
     max-width: 100%;
 }
 
+section.publicidad{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    overflow: hidden !important;  
+}
+
+section.ofertas {
+    padding-top: 0px;
+    padding-bottom: 80px;
+    overflow: hidden !important;
+    max-width: 100%;
+}
+
 section.advertising {
     padding-top: 0px;
     padding-bottom: 0px;
