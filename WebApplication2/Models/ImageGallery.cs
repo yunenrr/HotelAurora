@@ -9,7 +9,7 @@ namespace WebApplication2.Models
     {
 
         private int idImageGallery;
-        private string imageGalleryPath;
+        private string imageGalleryPath; 
 
         public ImageGallery ()
         {

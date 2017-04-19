@@ -40,6 +40,135 @@
     });
     </script>
 
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            url: "http://localhost:63596/api/Promotion/getPromotion",
+            type: "Get",
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    var imagePath = '/Content/images/promociones/' + data[i].ImagePromotion;
+
+                    if (i == 0) {
+                        $('<li class="slider-current">' +
+                        '<img src="' + imagePath + '" alt="Slider Imagen"> ' +
+                        '<div class="caption">' +
+                        '<h3 class="caption-title">' + data[i].PromotionName + '</h3>' +
+                            '<p>' + data[i].DescriptionPromotion + '</p>' +
+                        '</div>' +
+                    '</li>').appendTo("#slider");
+
+                        $('<li class="active"></li>').appendTo("#slider-controls");
+
+                    } else {
+                        $('<li>' +
+                        '<img src="' + imagePath + '" alt="Slider Imagen"> ' +
+                        '<div class="caption">' +
+                        '<h3 class="caption-title">' + data[i].PromotionName + '</h3>' +
+                            '<p>' + data[i].DescriptionPromotion + '</p>' +
+                        '</div>' +
+                        '</li>').appendTo("#slider");
+
+                        $('<li></li>').appendTo("#slider-controls");
+                    }
+                }
+
+                var SliderModule = (function () {
+                    var pb = {};
+                    pb.el = $('#slider');
+                    pb.items = {
+                        panel: pb.el.find('li')
+                    }
+
+                    //variables necesarias
+                    var sliderInterval, currentSlider = 0,
+                        nextSlider = 1,
+                        lengthSlider = pb.items.panel.length;
+
+                    //Inicialize
+                    pb.init = function (settings) {
+                        //activamos nuestro slider
+                        SliderInit();
+
+                        //controles slider
+                        $('#slider-controls').on('click', 'li', function (e) {
+                            var $this = $(this);
+
+                            if (currentSlider !== $this.index()) {
+                                changePanel($this.index());
+                            }
+
+                        })
+
+
+                    }
+
+                    var SliderInit = function () {
+                        sliderInterval = setInterval(pb.startSlider, 4000);
+                    }
+
+                    pb.startSlider = function () {
+
+                        var panels = pb.items.panel,
+                            controls = $('#slider-controls li');
+
+                        if (nextSlider >= lengthSlider) {
+                            nextSlider = 0;
+                            currentSlider = lengthSlider - 1;
+                        }
+
+                        //efectos
+                        controls.removeClass('active').eq(currentSlider).addClass('active');
+                        panels.eq(currentSlider).fadeOut('slow');
+                        panels.eq(nextSlider).fadeIn('slow');
+
+
+                        //Actualizamos nbuestro datos
+                        currentSlider = nextSlider;
+                        nextSlider += 1;
+                    }
+
+                    //function para controladore sde slider
+                    var changePanel = function (id) {
+
+                        clearInterval(sliderInterval);
+                        var panels = pb.items.panel,
+                            controls = $('#slider-controls li');
+                        //comprabamos el ID
+                        if (id >= lengthSlider) {
+                            id = 0;
+                        } else if (id < 0) {
+                            id = lengthSlider - 1;
+                        }
+
+                        //Efectos
+                        //efectos
+                        controls.removeClass('active').eq(id).addClass('active');
+                        panels.eq(currentSlider).fadeOut('slow');
+                        panels.eq(id).fadeIn('slow');
+
+                        //actualizar nuestros datos
+                        currentSlider = id;
+                        nextSlider = id + 1;
+
+                        //reactivar slider
+                        SliderInit();
+
+                    }
+
+                    return pb;
+                }());
+
+                SliderModule.init();
+
+            },
+            error: function (msg) { alert(msg); }
+        });
+
+
+    });
+    </script>
+
 </head>
 
 <body>
