@@ -276,3 +276,4 @@ C:\Users\yunen\Desktop\Universidad\HotelAurora\WebApplication2\bin\es\System.Web
 C:\Users\yunen\Desktop\Universidad\HotelAurora\WebApplication2\bin\es\System.Web.Http.WebHost.resources.dll
 C:\Users\yunen\Desktop\Universidad\HotelAurora\WebApplication2\obj\Debug\WebApplication2.dll
 C:\Users\yunen\Desktop\Universidad\HotelAurora\WebApplication2\obj\Debug\WebApplication2.pdb
+C:\Users\yunen\Desktop\Universidad\HotelAurora\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache

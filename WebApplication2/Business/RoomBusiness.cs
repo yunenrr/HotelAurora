@@ -27,6 +27,7 @@ namespace WebApplication2.Business
 
         public Room getRoom(int idRoomGet)
         {
+            return this.roomData.getRoom(idRoomGet);
         }//Fin del método
 
         ~RoomBusiness() { } //Destructor
