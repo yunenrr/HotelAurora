@@ -256,6 +256,7 @@
     <Compile Include="Data\ImageGalleryData.cs" />
     <Compile Include="Data\ImageRoomData.cs" />
     <Compile Include="Data\PromotionData.cs" />
+    <Compile Include="Data\ReservationData.cs" />
     <Compile Include="Data\RoomData.cs" />
     <Compile Include="Data\RoomTypeData.cs" />
     <Compile Include="Global.asax.cs">
