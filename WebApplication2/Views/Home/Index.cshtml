@@ -4,16 +4,13 @@
         $.ajax({
             url: "http://localhost:63596/api/Hotel/getHotel",
             type: "Get",
-            success: function (data) {
-                //for (var i = 0; i < data.length; i++) {
+            success: function (data)
+            {
                 $("<p'>" + data.History + "</p>").appendTo("#history");
                 $("<p'>" + data.Mission + "</p>").appendTo("#mission");
                 $("<p'>" + data.Vission + "</p>").appendTo("#vision");
                 $("<p'>" + data.BasicInformation + "</p>").appendTo("#about");
                 $("<p'>" + data.Location + "</p>").appendTo("#location");
-
-                
-                //}
             },
             error: function (msg) { alert(msg); }
         });

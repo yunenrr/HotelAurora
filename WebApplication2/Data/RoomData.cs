@@ -53,7 +53,7 @@ namespace WebApplication2.Data
                 int idRoom = Int32.Parse(currentRow["idtbroom"].ToString());
                 string nameRoom = currentRow["nameroom"].ToString();
                 string characteristicsRoom = currentRow["characteristics"].ToString();
-                int availabilityRoom = Int32.Parse(currentRow["availability"].ToString());
+                Boolean availabilityRoom = Boolean.Parse(currentRow["availability"].ToString());
                 int typeRoom = Int32.Parse(currentRow["typeroom"].ToString());
                 Room room = new Room(idRoom,nameRoom,characteristicsRoom,availabilityRoom,typeRoom);
                 roomList.Add(room);
@@ -95,7 +95,7 @@ namespace WebApplication2.Data
                 int idRoom = Int32.Parse(currentRow["idtbroom"].ToString());
                 string nameRoom = currentRow["nameroom"].ToString();
                 string characteristicsRoom = currentRow["characteristics"].ToString();
-                int availabilityRoom = Int32.Parse(currentRow["availability"].ToString());
+                Boolean availabilityRoom = Boolean.Parse(currentRow["availability"].ToString());
                 int typeRoom = Int32.Parse(currentRow["typeroom"].ToString());
                 room = new Room(idRoom, nameRoom, characteristicsRoom, availabilityRoom, typeRoom);
             }//Fin del foreach

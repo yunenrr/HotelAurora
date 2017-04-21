@@ -21,12 +21,12 @@ namespace WebApplication2.Business
 
         public List<ImageRoom> getImageRoomByType(int idType)
         {
-            return this.getImageRoomByType(idType);
+            return this.imageRoomData.getImageRoomByType(idType);
         }//Fin del método
 
         public List<ImageRoom> getImageRoomByRoom(int idRoom)
         {
-            return this.getImageRoomByRoom(idRoom);
+            return this.imageRoomData.getImageRoomByRoom(idRoom);
         }//Fin del método
 
         ~ImageRoomBusiness() { }

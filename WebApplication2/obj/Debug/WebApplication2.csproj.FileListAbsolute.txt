@@ -276,7 +276,6 @@ C:\Users\yunen\Desktop\Universidad\HotelAurora\WebApplication2\bin\es\System.Web
 C:\Users\yunen\Desktop\Universidad\HotelAurora\WebApplication2\bin\es\System.Web.Http.WebHost.resources.dll
 C:\Users\yunen\Desktop\Universidad\HotelAurora\WebApplication2\obj\Debug\WebApplication2.dll
 C:\Users\yunen\Desktop\Universidad\HotelAurora\WebApplication2\obj\Debug\WebApplication2.pdb
-C:\Users\yunen\Desktop\Universidad\HotelAurora\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
 C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\bin\ApplicationInsights.config
 C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\bin\roslyn\csc.exe
 C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -370,3 +369,4 @@ C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2
 C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
 C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\obj\Debug\WebApplication2.dll
 C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\obj\Debug\WebApplication2.pdb
+C:\Users\yunen\Desktop\Universidad\HotelAurora\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache

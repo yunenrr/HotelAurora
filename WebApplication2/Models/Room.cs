@@ -10,10 +10,10 @@ namespace WebApplication2.Models
         //Declaración de variables globales
         private int idRoom;
         private string nameRoom,characteristicsRoom;
-        private int availabilityRoom;
+        private Boolean availabilityRoom;
         private int typeRoom;
 
-        public Room(int idRoom, string nameRoom, string characteristicsRoom, int availabilityRoom, int typeRoom)
+        public Room(int idRoom, string nameRoom, string characteristicsRoom, Boolean availabilityRoom, int typeRoom)
         {
             this.IdRoom = idRoom;
             this.NameRoom = nameRoom;
@@ -61,7 +61,7 @@ namespace WebApplication2.Models
             }
         }
 
-        public int AvailabilityRoom
+        public Boolean AvailabilityRoom
         {
             get
             {

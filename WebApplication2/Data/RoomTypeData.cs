@@ -66,6 +66,48 @@ namespace WebApplication2.Data
             return roomTypeList;
         }//Fin del método
 
+        public RoomType getRoomTypeById(int id)
+        {
+            //conexion con la bd
+            SqlConnection sqlConn = new SqlConnection(this.connectionString);
+
+            //string sql
+            string sqlSelect = "select idtbroomtype,roomtype,descriptionroom,quantitypersons,price,imagepathroomtype from tbroomtype where idtbroomtype="+id+";";
+
+            //establecer la conexion con el adaptador
+            SqlDataAdapter sqlDataAdapterProperty = new SqlDataAdapter();
+
+            //configurar el adaptador
+            sqlDataAdapterProperty.SelectCommand = new SqlCommand();
+            sqlDataAdapterProperty.SelectCommand.CommandText = sqlSelect;
+            sqlDataAdapterProperty.SelectCommand.Connection = sqlConn;
+
+            //definir el data set
+            DataSet datasetRoomType = new DataSet();
+            RoomType roomType = null;
+
+            //dataset para guardar los resultados de la consulta
+            sqlDataAdapterProperty.Fill(datasetRoomType, "tbroomtype");
+
+            //cerrar la conexion con el adaptador
+            sqlDataAdapterProperty.SelectCommand.Connection.Close();
+
+            DataRowCollection dataRowCollection = datasetRoomType.Tables["tbroomtype"].Rows;
+
+            foreach (DataRow currentRow in dataRowCollection)
+            {
+                int idRoomType = Int32.Parse(currentRow["idtbroomtype"].ToString());
+                string nameRoomType = currentRow["roomtype"].ToString();
+                string descriptionRoomType = currentRow["descriptionroom"].ToString();
+                int quantityPersonRoomType = Int32.Parse(currentRow["quantitypersons"].ToString());
+                float priceRoomType = float.Parse(currentRow["price"].ToString());
+                string imagePathRoomType = currentRow["imagepathroomtype"].ToString();
+                roomType = new RoomType(idRoomType, nameRoomType, descriptionRoomType, quantityPersonRoomType, priceRoomType, imagePathRoomType);
+            }//Fin del foreach
+
+            return roomType;
+        }//Fin de la función
+
         ~RoomTypeData() { }
     }//Fin de la clase
 }

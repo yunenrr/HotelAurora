@@ -28,6 +28,11 @@ namespace WebApplication2.Business
             return this.roomTypeData.getAllRoomType();
         }//Fin del método
 
+        public RoomType getRoomTypeById(int id)
+        {
+            return this.roomTypeData.getRoomTypeById(id);
+        }//Fin de la función
+
         ~RoomTypeBusiness() { }
     }//Fin de la clase
 }

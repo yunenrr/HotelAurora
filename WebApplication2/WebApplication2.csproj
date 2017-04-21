@@ -242,12 +242,15 @@
     <Compile Include="Business\RoomBusiness.cs" />
     <Compile Include="Business\RoomTypeBusiness.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EjemplitoController.cs" />
     <Compile Include="Controllers\FacilityController.cs" />
     <Compile Include="Controllers\AdvertisingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\ImageGalleryController.cs" />
+    <Compile Include="Controllers\ImageRoomController.cs" />
     <Compile Include="Controllers\PromotionController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\RoomTypeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Data\FacilityData.cs" />
@@ -637,6 +640,7 @@
     <Folder Include="Content\fonts\" />
     <Folder Include="Content\videos\" />
     <Folder Include="Views\Facility\" />
+    <Folder Include="Views\Room\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
