@@ -16,7 +16,13 @@ namespace WebApplication2
             routes.MapRoute(
                 name: "Room",
                 url: "room/{id}",
-                defaults: new { controller = "Home", action = "Room", idTypeRoom = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Room", idRoom = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "RoomType",
+                url: "roomtype/{id}",
+                defaults: new { controller = "Home", action = "RoomType", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(

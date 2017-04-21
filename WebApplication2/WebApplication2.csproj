@@ -633,14 +633,13 @@
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Shared\_LayoutSecondPage.cshtml" />
     <Content Include="Views\Home\Room.cshtml" />
+    <Content Include="Views\Home\RoomType.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\css\" />
     <Folder Include="Content\fonts\" />
     <Folder Include="Content\videos\" />
-    <Folder Include="Views\Facility\" />
-    <Folder Include="Views\Room\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

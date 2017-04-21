@@ -22,5 +22,12 @@ namespace WebApplication2.Controllers
             return roomBusiness.getRoom(id);
             //return "hola"+id;
         }//Fin del método
+
+        [Route("api/Room/getRoomByType/{id}")]
+        [HttpGet]
+        public List<Room> getRoomByType(int id)
+        {
+            return roomBusiness.getRoomByType(id);
+        }//Fin de la función
     }//Fin de la clase
 }

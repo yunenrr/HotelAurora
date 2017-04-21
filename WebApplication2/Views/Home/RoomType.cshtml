@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Habitaciones";
+    Layout = "~/Views/Shared/_LayoutSecondPage.cshtml";
+}
+<script type="text/javascript">
+    var arrayParam = document.location.href.split("/");
+    idRoomType = arrayParam[arrayParam.length - 1];
+
+    $.ajax({
+        url: "http://localhost:63596/api/Room/getRoomByType/" + idRoomType,
+        type: "Get",
+        success: function (data)
+        {
+            var itemSlider = '';
+            for (var i = 0; i < data.length; i++)
+            {
+                var temp = '<article class="room_list">'+
+                    '<div class="row">'+
+                        '<div class="col-lg-8 col-md-7 col-sm-12">'+
+                            '<div class="room_details">'+
+                                '<div class="col-md-9 col-sm-9 col-xs-12 room_desc">'+
+                                    '<h3><a href="../room/' + data[i].IdRoom + '">' + data[i].NameRoom + '</a></h3>' +
+                                    '<p>' + data[i].CharacteristicsRoom + '</p>' +
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</article>';
+                $("#divItem").append(temp);
+            }//Fin del for
+        },
+        error: function (msg) { alert("Error in get all rooms"); }
+    });
+
+    $.ajax({
+        url: "http://localhost:63596/api/RoomType/getRoomTypeById/" + idRoomType,
+        type: "Get",
+        success: function (data)
+        {
+            $(".type_room").text(data.NameRoomType);
+        },
+        error: function (msg) { alert("Error in type"); }
+    });
+</script>
+<!-- =========== PAGE TITLE ========== -->
+<div class="page_title gradient_overlay" style="background:url(images/xpage_title_bg.jpg.pagespeed.ic.mhkLvKptY0.jpg)">
+    <div class="container">
+        <div class="inner">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <h1 class="type_room"></h1>
+                    <ol class="breadcrumb">
+                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                        <li class="type_room"></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =========== MAIN ========== -->
+<main id="rooms_list">
+    <div class="container" id="divItem">
+        <!-- ITEM -->
+        @*<article class="room_list">
+            <div class="row">
+                <div class="col-lg-4 col-md-5 col-sm-12">
+                    <figure>
+                        <div class="room_list_slider owl-carousel">
+                            <div class="item">
+                                <a href="room.html" class="hover_effect h_link h_blue"><img src="images/rooms/xdouble1.jpg.pagespeed.ic.inoyU7NRmP.jpg" alt="Image"></a>
+                            </div>
+                            <div class="item">
+                                <a href="room.html" class="hover_effect h_link h_blue"><img src="images/rooms/xdouble2.jpg.pagespeed.ic.tVgFfbXmNW.jpg" alt="Image"></a>
+                            </div>
+                            <div class="item">
+                                <a href="room.html" class="hover_effect h_link h_blue"><img src="images/rooms/xdouble3.jpg.pagespeed.ic.dHDZBW_E4v.jpg" alt="Image"></a>
+                            </div>
+                        </div>
+                    </figure>
+                </div>
+                <div class="col-lg-8 col-md-7 col-sm-12">
+                    <div class="room_details">
+                        <div class="col-md-9 col-sm-9 col-xs-12 room_desc">
+                            <h3><a href="room.html"> Double Room - With Slider </a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>*@
+    </div>
+</main><!-- Fin del room_page -->

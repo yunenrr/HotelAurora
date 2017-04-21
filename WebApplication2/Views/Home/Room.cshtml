@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Room";
+    ViewBag.Title = "Habitación";
     Layout = "~/Views/Shared/_LayoutSecondPage.cshtml";
 }
 <script type="text/javascript">
@@ -29,7 +29,7 @@
             success: function (data)
             {
                 $("#priceByNight").html('¢' + data.PriceRoomType + '<span>por noche</span>');
-                $("#urlRoomType").html('<a href="../room/' + data.IdRoomType + '">' + data.NameRoomType + '</a>');
+                $("#urlRoomType").html('<a href="../roomtype/' + data.IdRoomType + '">' + data.NameRoomType + '</a>');
             },
             error: function (msg) { alert("Error in type"); }
         });

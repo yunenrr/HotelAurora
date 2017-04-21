@@ -27,9 +27,15 @@ namespace WebApplication2.Controllers
             return View();
         }
 
-        public ActionResult Room(string idTypeRoom)
+        public ActionResult Room(string idRoom)
         {
             ViewBag.Title = "Room";
+            return View();
+        }//Fin del método room
+
+        public ActionResult RoomType(string id)
+        {
+            ViewBag.Title = "RoomType";
             return View();
         }//Fin del método room
 
