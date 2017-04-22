@@ -28,6 +28,7 @@
             type: "Get",
             success: function (data)
             {
+                alert(data.IdRoomType + " - " + data.NameRoomType);
                 $("#priceByNight").html('¢' + data.PriceRoomType + '<span>por noche</span>');
                 $("#urlRoomType").html('<a href="../roomtype/' + data.IdRoomType + '">' + data.NameRoomType + '</a>');
             },

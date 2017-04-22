@@ -37,7 +37,15 @@ namespace WebApplication2.Controllers
         {
             ViewBag.Title = "RoomType";
             return View();
-        }//Fin del método room
+        }//Fin del método room.
+
+
+
+        public ActionResult Booking()
+        {
+            ViewBag.Title = "Booking";
+            return View();
+        }//Fin del método 
 
     }
 }

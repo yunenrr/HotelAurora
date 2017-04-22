@@ -25,5 +25,46 @@ namespace UnitTestProject1
                 Console.WriteLine("Id: " + i.ImageRoomPath);
             }
         }
+
+
+        [TestMethod]
+        public void TestMethod2()
+        {
+            ReservationData rs = new ReservationData("Data Source = jocoma.database.windows.net; Initial Catalog = aurorahotel; Persist Security Info = True; User ID = jocoma; Password = jcm_12345");
+
+            string reservationNumber = "1a2c3d";
+            int client = 132;
+            int creditCard = 123456;
+            int room = 88;
+            string inDate = "21/04/2017";
+            string outDate = "25/04/2017";
+
+
+            int result = rs.insertReservation(reservationNumber, client, creditCard, room, inDate, outDate);
+
+            Console.WriteLine("La reservacion fue: " + result);
+
+
+        }
+
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+            ReservationData rs = new ReservationData("Data Source = jocoma.database.windows.net; Initial Catalog = aurorahotel; Persist Security Info = True; User ID = jocoma; Password = jcm_12345");
+
+            
+            int typeroom = 1;
+            string inDate = "21/04/2017";
+            string outDate = "25/04/2017";
+
+
+            List<int> result = rs.verifyReservation(typeroom, inDate, outDate);
+
+            Console.WriteLine("La reservacion fue: ");
+
+
+
+        }
     }
 }

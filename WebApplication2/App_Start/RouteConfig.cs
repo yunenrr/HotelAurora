@@ -26,6 +26,12 @@ namespace WebApplication2
             );
 
             routes.MapRoute(
+                name: "Booking",
+                url: "booking/{id}",
+                defaults: new { controller = "Home", action = "Booking", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

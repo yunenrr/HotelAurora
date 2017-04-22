@@ -239,6 +239,7 @@
     <Compile Include="Business\ImageGalleryBusiness.cs" />
     <Compile Include="Business\ImageRoomBusiness.cs" />
     <Compile Include="Business\PromotionBusiness.cs" />
+    <Compile Include="Business\ReservationBusiness.cs" />
     <Compile Include="Business\RoomBusiness.cs" />
     <Compile Include="Business\RoomTypeBusiness.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -250,6 +251,7 @@
     <Compile Include="Controllers\ImageGalleryController.cs" />
     <Compile Include="Controllers\ImageRoomController.cs" />
     <Compile Include="Controllers\PromotionController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\RoomTypeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -274,6 +276,7 @@
     <Compile Include="Models\ImageGallery.cs" />
     <Compile Include="Models\ImageRoom.cs" />
     <Compile Include="Models\Promotion.cs" />
+    <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -634,6 +637,7 @@
     <Content Include="Views\Shared\_LayoutSecondPage.cshtml" />
     <Content Include="Views\Home\Room.cshtml" />
     <Content Include="Views\Home\RoomType.cshtml" />
+    <Content Include="Views\Home\Booking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
