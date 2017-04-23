@@ -250,6 +250,7 @@
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\ImageGalleryController.cs" />
     <Compile Include="Controllers\ImageRoomController.cs" />
+    <Compile Include="Controllers\MailController.cs" />
     <Compile Include="Controllers\PromotionController.cs" />
     <Compile Include="Controllers\ReservationController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
@@ -275,6 +276,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ImageGallery.cs" />
     <Compile Include="Models\ImageRoom.cs" />
+    <Compile Include="Models\Mail.cs" />
     <Compile Include="Models\Promotion.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Room.cs" />

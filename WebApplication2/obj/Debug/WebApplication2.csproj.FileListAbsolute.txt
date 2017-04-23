@@ -376,3 +376,9 @@ C:\Users\dayla\Desktop\HotelAurora\WebApplication2\bin\es\System.Web.Razor.resou
 C:\Users\dayla\Desktop\HotelAurora\WebApplication2\bin\es\System.Web.WebPages.resources.dll
 C:\Users\dayla\Desktop\HotelAurora\WebApplication2\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\dayla\Desktop\HotelAurora\WebApplication2\bin\es\System.Web.WebPages.Razor.resources.dll
+C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\bin\es\System.Web.Helpers.resources.dll
+C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\bin\es\System.Web.Mvc.resources.dll
+C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\bin\es\System.Web.Razor.resources.dll
+C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\bin\es\System.Web.WebPages.resources.dll
+C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\bin\es\System.Web.WebPages.Deployment.resources.dll
+C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\bin\es\System.Web.WebPages.Razor.resources.dll
