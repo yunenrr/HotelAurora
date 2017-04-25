@@ -1,0 +1,35 @@
+﻿@model ModAdministrative.Models.tbsocialred
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Información</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.socialred)
+        </dd>
+
+        <dt>
+            URL:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urlsocialred)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idtbsocialred }) |
+    @Html.ActionLink("Volver a la lista de redes sociales", "Index")
+</p>

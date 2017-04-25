@@ -1,0 +1,49 @@
+﻿@model ModAdministrative.Models.tbsocialred
+
+@{
+    ViewBag.Title = "Agregar red social";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Agregar red social</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Información:</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2">Nombre:</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.socialred, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.socialred, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">URL:</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.urlsocialred, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.urlsocialred, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Agregar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Volver a la lista de redes sociales", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

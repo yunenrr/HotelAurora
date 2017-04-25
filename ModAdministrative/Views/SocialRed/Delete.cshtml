@@ -1,0 +1,41 @@
+﻿@model ModAdministrative.Models.tbsocialred
+
+@{
+    ViewBag.Title = "Eliminar";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Eliminar red social</h2>
+
+<h3>¿Está seguro de que la desea eliminar?</h3>
+<div>
+    <h4>Información</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.socialred)
+        </dd>
+
+        <dt>
+            URL:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urlsocialred)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver a la lista de redes sociales", "Index")
+        </div>
+    }
+</div>

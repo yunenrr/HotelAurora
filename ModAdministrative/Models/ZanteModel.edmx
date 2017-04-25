@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AuroraHotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbadvertising">
+          <Key>
+            <PropertyRef Name="idtbadvertising" />
+          </Key>
+          <Property Name="idtbadvertising" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imageadvertisingpath" Type="nvarchar" MaxLength="65" Nullable="false" />
+          <Property Name="urladvertising" Type="nvarchar" MaxLength="130" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbclient">
+          <Key>
+            <PropertyRef Name="idtbclient" />
+          </Key>
+          <Property Name="idtbclient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dni" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="65" Nullable="false" />
+          <Property Name="surnames" Type="nvarchar" MaxLength="130" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="65" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="tbemail">
+          <Key>
+            <PropertyRef Name="idtbemail" />
+          </Key>
+          <Property Name="idtbemail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="65" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbfacility">
+          <Key>
+            <PropertyRef Name="idtbfacility" />
+          </Key>
+          <Property Name="idtbfacility" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="facility" Type="nvarchar" MaxLength="65" />
+          <Property Name="descriptionfacility" Type="nvarchar" MaxLength="200" />
+          <Property Name="imagefacilitypath" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tbhotel">
+          <Key>
+            <PropertyRef Name="idtbhotel" />
+          </Key>
+          <Property Name="idtbhotel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namehotel" Type="nvarchar" MaxLength="65" Nullable="false" />
+          <Property Name="basicinformation" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="history" Type="nvarchar" MaxLength="600" Nullable="false" />
+          <Property Name="mission" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="vission" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="location" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbimagegallery">
+          <Key>
+            <PropertyRef Name="idtbimagegallery" />
+          </Key>
+          <Property Name="idtbimagegallery" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imagegallerypath" Type="nvarchar" MaxLength="65" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbimageroom">
+          <Key>
+            <PropertyRef Name="idtbimageroom" />
+          </Key>
+          <Property Name="idtbimageroom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imageroompath" Type="nvarchar" MaxLength="65" Nullable="false" />
+          <Property Name="room" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbphone">
+          <Key>
+            <PropertyRef Name="idtbphone" />
+          </Key>
+          <Property Name="idtbphone" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="phone" Type="nvarchar" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbpromotion">
+          <Key>
+            <PropertyRef Name="idtbpromotion" />
+          </Key>
+          <Property Name="idtbpromotion" Type="int" Nullable="false" />
+          <Property Name="promotion" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="descriptionpromotion" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="imagepromotion" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbreservation">
+          <Key>
+            <PropertyRef Name="idtbreservation" />
+          </Key>
+          <Property Name="idtbreservation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="reservationnumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="client" Type="int" Nullable="false" />
+          <Property Name="creditcard" Type="int" Nullable="false" />
+          <Property Name="room" Type="int" Nullable="false" />
+          <Property Name="indate" Type="date" Nullable="false" />
+          <Property Name="outdate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbroom">
+          <Key>
+            <PropertyRef Name="idtbroom" />
+          </Key>
+          <Property Name="idtbroom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nameroom" Type="nvarchar" MaxLength="65" Nullable="false" />
+          <Property Name="characteristics" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="availability" Type="bit" />
+          <Property Name="typeroom" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbroomtype">
+          <Key>
+            <PropertyRef Name="idtbroomtype" />
+          </Key>
+          <Property Name="idtbroomtype" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roomtype" Type="nvarchar" MaxLength="65" Nullable="false" />
+          <Property Name="descriptionroom" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="quantitypersons" Type="int" Nullable="false" />
+          <Property Name="price" Type="money" Nullable="false" />
+          <Property Name="imagepathroomtype" Type="nvarchar" MaxLength="65" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbsocialred">
+          <Key>
+            <PropertyRef Name="idtbsocialred" />
+          </Key>
+          <Property Name="idtbsocialred" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="socialred" Type="nvarchar" MaxLength="65" Nullable="false" />
+          <Property Name="urlsocialred" Type="nvarchar" MaxLength="65" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbuseradmin">
+          <Key>
+            <PropertyRef Name="idtbuseradmin" />
+          </Key>
+          <Property Name="idtbuseradmin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nameuseradmin" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="emailuseradmin" Type="varchar" MaxLength="75" Nullable="false" />
+          <Property Name="passworduseradmin" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <Association Name="fkimageroomtoroom">
+          <End Role="tbroom" Type="Self.tbroom" Multiplicity="1" />
+          <End Role="tbimageroom" Type="Self.tbimageroom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbroom">
+              <PropertyRef Name="idtbroom" />
+            </Principal>
+            <Dependent Role="tbimageroom">
+              <PropertyRef Name="room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkreservationtoclient">
+          <End Role="tbclient" Type="Self.tbclient" Multiplicity="1" />
+          <End Role="tbreservation" Type="Self.tbreservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbclient">
+              <PropertyRef Name="idtbclient" />
+            </Principal>
+            <Dependent Role="tbreservation">
+              <PropertyRef Name="client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkreservationtoroom">
+          <End Role="tbroom" Type="Self.tbroom" Multiplicity="1" />
+          <End Role="tbreservation" Type="Self.tbreservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbroom">
+              <PropertyRef Name="idtbroom" />
+            </Principal>
+            <Dependent Role="tbreservation">
+              <PropertyRef Name="room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkroomtotyperoom">
+          <End Role="tbroomtype" Type="Self.tbroomtype" Multiplicity="1" />
+          <End Role="tbroom" Type="Self.tbroom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbroomtype">
+              <PropertyRef Name="idtbroomtype" />
+            </Principal>
+            <Dependent Role="tbroom">
+              <PropertyRef Name="typeroom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AuroraHotelModelStoreContainer">
+          <EntitySet Name="tbadvertising" EntityType="Self.tbadvertising" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbclient" EntityType="Self.tbclient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbemail" EntityType="Self.tbemail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbfacility" EntityType="Self.tbfacility" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbhotel" EntityType="Self.tbhotel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbimagegallery" EntityType="Self.tbimagegallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbimageroom" EntityType="Self.tbimageroom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbphone" EntityType="Self.tbphone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbpromotion" EntityType="Self.tbpromotion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbreservation" EntityType="Self.tbreservation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbroom" EntityType="Self.tbroom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbroomtype" EntityType="Self.tbroomtype" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbsocialred" EntityType="Self.tbsocialred" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbuseradmin" EntityType="Self.tbuseradmin" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fkimageroomtoroom" Association="Self.fkimageroomtoroom">
+            <End Role="tbroom" EntitySet="tbroom" />
+            <End Role="tbimageroom" EntitySet="tbimageroom" />
+          </AssociationSet>
+          <AssociationSet Name="fkreservationtoclient" Association="Self.fkreservationtoclient">
+            <End Role="tbclient" EntitySet="tbclient" />
+            <End Role="tbreservation" EntitySet="tbreservation" />
+          </AssociationSet>
+          <AssociationSet Name="fkreservationtoroom" Association="Self.fkreservationtoroom">
+            <End Role="tbroom" EntitySet="tbroom" />
+            <End Role="tbreservation" EntitySet="tbreservation" />
+          </AssociationSet>
+          <AssociationSet Name="fkroomtotyperoom" Association="Self.fkroomtotyperoom">
+            <End Role="tbroomtype" EntitySet="tbroomtype" />
+            <End Role="tbroom" EntitySet="tbroom" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AuroraHotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbadvertising">
+          <Key>
+            <PropertyRef Name="idtbadvertising" />
+          </Key>
+          <Property Name="idtbadvertising" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imageadvertisingpath" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="urladvertising" Type="String" MaxLength="130" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbclient">
+          <Key>
+            <PropertyRef Name="idtbclient" />
+          </Key>
+          <Property Name="idtbclient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dni" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="surnames" Type="String" MaxLength="130" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbreservations" Relationship="Self.fkreservationtoclient" FromRole="tbclient" ToRole="tbreservation" />
+        </EntityType>
+        <EntityType Name="tbemail">
+          <Key>
+            <PropertyRef Name="idtbemail" />
+          </Key>
+          <Property Name="idtbemail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="65" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbfacility">
+          <Key>
+            <PropertyRef Name="idtbfacility" />
+          </Key>
+          <Property Name="idtbfacility" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="facility" Type="String" MaxLength="65" FixedLength="false" Unicode="true" />
+          <Property Name="descriptionfacility" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="imagefacilitypath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbhotel">
+          <Key>
+            <PropertyRef Name="idtbhotel" />
+          </Key>
+          <Property Name="idtbhotel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namehotel" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="basicinformation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="history" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mission" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="vission" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="location" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbimagegallery">
+          <Key>
+            <PropertyRef Name="idtbimagegallery" />
+          </Key>
+          <Property Name="idtbimagegallery" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imagegallerypath" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbimageroom">
+          <Key>
+            <PropertyRef Name="idtbimageroom" />
+          </Key>
+          <Property Name="idtbimageroom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imageroompath" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="room" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbroom" Relationship="Self.fkimageroomtoroom" FromRole="tbimageroom" ToRole="tbroom" />
+        </EntityType>
+        <EntityType Name="tbphone">
+          <Key>
+            <PropertyRef Name="idtbphone" />
+          </Key>
+          <Property Name="idtbphone" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="phone" Type="String" MaxLength="8" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbpromotion">
+          <Key>
+            <PropertyRef Name="idtbpromotion" />
+          </Key>
+          <Property Name="idtbpromotion" Type="Int32" Nullable="false" />
+          <Property Name="promotion" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descriptionpromotion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="imagepromotion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbreservation">
+          <Key>
+            <PropertyRef Name="idtbreservation" />
+          </Key>
+          <Property Name="idtbreservation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="reservationnumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="client" Type="Int32" Nullable="false" />
+          <Property Name="creditcard" Type="Int32" Nullable="false" />
+          <Property Name="room" Type="Int32" Nullable="false" />
+          <Property Name="indate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="outdate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="tbclient" Relationship="Self.fkreservationtoclient" FromRole="tbreservation" ToRole="tbclient" />
+          <NavigationProperty Name="tbroom" Relationship="Self.fkreservationtoroom" FromRole="tbreservation" ToRole="tbroom" />
+        </EntityType>
+        <EntityType Name="tbroom">
+          <Key>
+            <PropertyRef Name="idtbroom" />
+          </Key>
+          <Property Name="idtbroom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nameroom" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="characteristics" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="availability" Type="Boolean" />
+          <Property Name="typeroom" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbimagerooms" Relationship="Self.fkimageroomtoroom" FromRole="tbroom" ToRole="tbimageroom" />
+          <NavigationProperty Name="tbreservations" Relationship="Self.fkreservationtoroom" FromRole="tbroom" ToRole="tbreservation" />
+          <NavigationProperty Name="tbroomtype" Relationship="Self.fkroomtotyperoom" FromRole="tbroom" ToRole="tbroomtype" />
+        </EntityType>
+        <EntityType Name="tbroomtype">
+          <Key>
+            <PropertyRef Name="idtbroomtype" />
+          </Key>
+          <Property Name="idtbroomtype" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roomtype" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descriptionroom" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="quantitypersons" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="imagepathroomtype" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tbrooms" Relationship="Self.fkroomtotyperoom" FromRole="tbroomtype" ToRole="tbroom" />
+        </EntityType>
+        <EntityType Name="tbsocialred">
+          <Key>
+            <PropertyRef Name="idtbsocialred" />
+          </Key>
+          <Property Name="idtbsocialred" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="socialred" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="urlsocialred" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbuseradmin">
+          <Key>
+            <PropertyRef Name="idtbuseradmin" />
+          </Key>
+          <Property Name="idtbuseradmin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nameuseradmin" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emailuseradmin" Type="String" MaxLength="75" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="passworduseradmin" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="fkreservationtoclient">
+          <End Role="tbclient" Type="Self.tbclient" Multiplicity="1" />
+          <End Role="tbreservation" Type="Self.tbreservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbclient">
+              <PropertyRef Name="idtbclient" />
+            </Principal>
+            <Dependent Role="tbreservation">
+              <PropertyRef Name="client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkimageroomtoroom">
+          <End Role="tbroom" Type="Self.tbroom" Multiplicity="1" />
+          <End Role="tbimageroom" Type="Self.tbimageroom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbroom">
+              <PropertyRef Name="idtbroom" />
+            </Principal>
+            <Dependent Role="tbimageroom">
+              <PropertyRef Name="room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkreservationtoroom">
+          <End Role="tbroom" Type="Self.tbroom" Multiplicity="1" />
+          <End Role="tbreservation" Type="Self.tbreservation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbroom">
+              <PropertyRef Name="idtbroom" />
+            </Principal>
+            <Dependent Role="tbreservation">
+              <PropertyRef Name="room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkroomtotyperoom">
+          <End Role="tbroomtype" Type="Self.tbroomtype" Multiplicity="1" />
+          <End Role="tbroom" Type="Self.tbroom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbroomtype">
+              <PropertyRef Name="idtbroomtype" />
+            </Principal>
+            <Dependent Role="tbroom">
+              <PropertyRef Name="typeroom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="aurorahotelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbadvertisings" EntityType="Self.tbadvertising" />
+          <EntitySet Name="tbclients" EntityType="Self.tbclient" />
+          <EntitySet Name="tbemails" EntityType="Self.tbemail" />
+          <EntitySet Name="tbfacilities" EntityType="Self.tbfacility" />
+          <EntitySet Name="tbhotels" EntityType="Self.tbhotel" />
+          <EntitySet Name="tbimagegalleries" EntityType="Self.tbimagegallery" />
+          <EntitySet Name="tbimagerooms" EntityType="Self.tbimageroom" />
+          <EntitySet Name="tbphones" EntityType="Self.tbphone" />
+          <EntitySet Name="tbpromotions" EntityType="Self.tbpromotion" />
+          <EntitySet Name="tbreservations" EntityType="Self.tbreservation" />
+          <EntitySet Name="tbrooms" EntityType="Self.tbroom" />
+          <EntitySet Name="tbroomtypes" EntityType="Self.tbroomtype" />
+          <EntitySet Name="tbsocialreds" EntityType="Self.tbsocialred" />
+          <EntitySet Name="tbuseradmins" EntityType="Self.tbuseradmin" />
+          <AssociationSet Name="fkreservationtoclient" Association="Self.fkreservationtoclient">
+            <End Role="tbclient" EntitySet="tbclients" />
+            <End Role="tbreservation" EntitySet="tbreservations" />
+          </AssociationSet>
+          <AssociationSet Name="fkimageroomtoroom" Association="Self.fkimageroomtoroom">
+            <End Role="tbroom" EntitySet="tbrooms" />
+            <End Role="tbimageroom" EntitySet="tbimagerooms" />
+          </AssociationSet>
+          <AssociationSet Name="fkreservationtoroom" Association="Self.fkreservationtoroom">
+            <End Role="tbroom" EntitySet="tbrooms" />
+            <End Role="tbreservation" EntitySet="tbreservations" />
+          </AssociationSet>
+          <AssociationSet Name="fkroomtotyperoom" Association="Self.fkroomtotyperoom">
+            <End Role="tbroomtype" EntitySet="tbroomtypes" />
+            <End Role="tbroom" EntitySet="tbrooms" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AuroraHotelModelStoreContainer" CdmEntityContainer="aurorahotelEntities">
+          <EntitySetMapping Name="tbadvertisings">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbadvertising">
+              <MappingFragment StoreEntitySet="tbadvertising">
+                <ScalarProperty Name="idtbadvertising" ColumnName="idtbadvertising" />
+                <ScalarProperty Name="imageadvertisingpath" ColumnName="imageadvertisingpath" />
+                <ScalarProperty Name="urladvertising" ColumnName="urladvertising" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbclients">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbclient">
+              <MappingFragment StoreEntitySet="tbclient">
+                <ScalarProperty Name="idtbclient" ColumnName="idtbclient" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surnames" ColumnName="surnames" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbemails">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbemail">
+              <MappingFragment StoreEntitySet="tbemail">
+                <ScalarProperty Name="idtbemail" ColumnName="idtbemail" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbfacilities">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbfacility">
+              <MappingFragment StoreEntitySet="tbfacility">
+                <ScalarProperty Name="idtbfacility" ColumnName="idtbfacility" />
+                <ScalarProperty Name="facility" ColumnName="facility" />
+                <ScalarProperty Name="descriptionfacility" ColumnName="descriptionfacility" />
+                <ScalarProperty Name="imagefacilitypath" ColumnName="imagefacilitypath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbhotels">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbhotel">
+              <MappingFragment StoreEntitySet="tbhotel">
+                <ScalarProperty Name="idtbhotel" ColumnName="idtbhotel" />
+                <ScalarProperty Name="namehotel" ColumnName="namehotel" />
+                <ScalarProperty Name="basicinformation" ColumnName="basicinformation" />
+                <ScalarProperty Name="history" ColumnName="history" />
+                <ScalarProperty Name="mission" ColumnName="mission" />
+                <ScalarProperty Name="vission" ColumnName="vission" />
+                <ScalarProperty Name="location" ColumnName="location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbimagegalleries">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbimagegallery">
+              <MappingFragment StoreEntitySet="tbimagegallery">
+                <ScalarProperty Name="idtbimagegallery" ColumnName="idtbimagegallery" />
+                <ScalarProperty Name="imagegallerypath" ColumnName="imagegallerypath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbimagerooms">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbimageroom">
+              <MappingFragment StoreEntitySet="tbimageroom">
+                <ScalarProperty Name="idtbimageroom" ColumnName="idtbimageroom" />
+                <ScalarProperty Name="imageroompath" ColumnName="imageroompath" />
+                <ScalarProperty Name="room" ColumnName="room" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbphones">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbphone">
+              <MappingFragment StoreEntitySet="tbphone">
+                <ScalarProperty Name="idtbphone" ColumnName="idtbphone" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbpromotions">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbpromotion">
+              <MappingFragment StoreEntitySet="tbpromotion">
+                <ScalarProperty Name="idtbpromotion" ColumnName="idtbpromotion" />
+                <ScalarProperty Name="promotion" ColumnName="promotion" />
+                <ScalarProperty Name="descriptionpromotion" ColumnName="descriptionpromotion" />
+                <ScalarProperty Name="imagepromotion" ColumnName="imagepromotion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbreservations">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbreservation">
+              <MappingFragment StoreEntitySet="tbreservation">
+                <ScalarProperty Name="idtbreservation" ColumnName="idtbreservation" />
+                <ScalarProperty Name="reservationnumber" ColumnName="reservationnumber" />
+                <ScalarProperty Name="client" ColumnName="client" />
+                <ScalarProperty Name="creditcard" ColumnName="creditcard" />
+                <ScalarProperty Name="room" ColumnName="room" />
+                <ScalarProperty Name="indate" ColumnName="indate" />
+                <ScalarProperty Name="outdate" ColumnName="outdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbrooms">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbroom">
+              <MappingFragment StoreEntitySet="tbroom">
+                <ScalarProperty Name="idtbroom" ColumnName="idtbroom" />
+                <ScalarProperty Name="nameroom" ColumnName="nameroom" />
+                <ScalarProperty Name="characteristics" ColumnName="characteristics" />
+                <ScalarProperty Name="availability" ColumnName="availability" />
+                <ScalarProperty Name="typeroom" ColumnName="typeroom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbroomtypes">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbroomtype">
+              <MappingFragment StoreEntitySet="tbroomtype">
+                <ScalarProperty Name="idtbroomtype" ColumnName="idtbroomtype" />
+                <ScalarProperty Name="roomtype" ColumnName="roomtype" />
+                <ScalarProperty Name="descriptionroom" ColumnName="descriptionroom" />
+                <ScalarProperty Name="quantitypersons" ColumnName="quantitypersons" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="imagepathroomtype" ColumnName="imagepathroomtype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbsocialreds">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbsocialred">
+              <MappingFragment StoreEntitySet="tbsocialred">
+                <ScalarProperty Name="idtbsocialred" ColumnName="idtbsocialred" />
+                <ScalarProperty Name="socialred" ColumnName="socialred" />
+                <ScalarProperty Name="urlsocialred" ColumnName="urlsocialred" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbuseradmins">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbuseradmin">
+              <MappingFragment StoreEntitySet="tbuseradmin">
+                <ScalarProperty Name="idtbuseradmin" ColumnName="idtbuseradmin" />
+                <ScalarProperty Name="nameuseradmin" ColumnName="nameuseradmin" />
+                <ScalarProperty Name="emailuseradmin" ColumnName="emailuseradmin" />
+                <ScalarProperty Name="passworduseradmin" ColumnName="passworduseradmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

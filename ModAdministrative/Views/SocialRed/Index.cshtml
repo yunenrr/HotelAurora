@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ModAdministrative.Models.tbsocialred>
+
+@{
+    ViewBag.Title = "Redes Sociales";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Redes Sociales</h2>
+
+<p>
+    @Html.ActionLink("Agregar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre de la red
+        </th>
+        <th>
+            URL
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.socialred)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.urlsocialred)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idtbsocialred }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idtbsocialred }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idtbsocialred })
+        </td>
+    </tr>
+}
+
+</table>
