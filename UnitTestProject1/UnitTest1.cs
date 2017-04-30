@@ -66,5 +66,28 @@ namespace UnitTestProject1
 
 
         }
+        //test insertar clientes
+        [TestMethod]
+        public void TestMethod4()
+        {
+            ClientData rs = new ClientData("Data Source = jocoma.database.windows.net; Initial Catalog = aurorahotel; Persist Security Info = True; User ID = jocoma; Password = jcm_12345");
+
+
+           // int idtbclient = 1;
+            string dni = "3-356-523";
+            string name = "Sacarias";
+            string surnames = "Jiménez Obregón";
+            string email = "saca24@gmail.com";
+            string phone = "8888-8888";
+
+
+            int result = rs.insertClient(dni, name, surnames, email, phone);
+
+            Console.WriteLine("El cliente fue: "+result);
+
+
+
+        }
+
     }
 }
