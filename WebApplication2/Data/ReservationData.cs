@@ -60,8 +60,6 @@ namespace WebApplication2.Data
             return roomsNotAvailableList;
         }
 
-
-
         /*Metodo para insertar la reservacion*/
         public int insertReservation(string reservationNumber, int client, int creditCard, int room, string intDate, string outDate) {
 

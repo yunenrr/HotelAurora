@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace ModAdministrative.Controllers
 {
-    public class HomeController : Controller
+    public class HomeAdminController : Controller
     {
         // GET: Home
         public ActionResult Index()

@@ -142,7 +142,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomeAdminController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\SocialRedController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -226,6 +227,7 @@
     <Content Include="Views\SocialRed\Details.cshtml" />
     <Content Include="Views\SocialRed\Edit.cshtml" />
     <Content Include="Views\SocialRed\Index.cshtml" />
+    <Content Include="Views\Room\AvailablesRoom.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -238,6 +240,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebApplication2\WebApplication2.csproj">
+      <Project>{b209a698-6eea-492d-bf1c-83520ffe1207}</Project>
+      <Name>WebApplication2</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

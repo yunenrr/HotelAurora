@@ -1,0 +1,40 @@
+﻿@model List<WebApplication2.Models.Room>
+
+@{
+    ViewBag.Title = "Estado del Hotel";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Estado del hotel para el día de hoy</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Nombre de la habitación
+        </th>
+        <th>
+            Estado
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <a href="#">@item.NameRoom</a>
+            </td>
+            <td>
+                @if (@item.AvailabilityRoom == true)
+                {
+                    <text>Disponible</text>
+                }
+                else
+                {
+                    <text>Ocupada</text>
+                }
+            </td>
+        </tr>
+    }
+
+</table>

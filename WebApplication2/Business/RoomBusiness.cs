@@ -30,6 +30,11 @@ namespace WebApplication2.Business
             return this.roomData.getRoom(idRoomGet);
         }//Fin del método
 
+        public List<Room> getRoomsState()
+        {
+            return this.roomData.getRoomsState();
+        }
+
         ~RoomBusiness() { } //Destructor
     }//Fin de la clase
 }
