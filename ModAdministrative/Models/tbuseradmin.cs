@@ -11,12 +11,29 @@ namespace ModAdministrative.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
+
     public partial class tbuseradmin
     {
+        [DisplayName("ID Admin")]
         public int idtbuseradmin { get; set; }
+
+        [DisplayName("Nombre ")]
+        [Required(ErrorMessage = "Requiere el nombre del administrador")]
         public string nameuseradmin { get; set; }
+
+        [DisplayName("Email")]
+        [Required(ErrorMessage = "Requiere el email del administrador")]
         public string emailuseradmin { get; set; }
+
+        [DisplayName("Contraseña")]
+        [Required(ErrorMessage = "Requiere la contraseña del administrador")]
+        [DataType(DataType.Password)]
         public string passworduseradmin { get; set; }
+
+        public string loginErrorMessage { get; set; }
     }
 }

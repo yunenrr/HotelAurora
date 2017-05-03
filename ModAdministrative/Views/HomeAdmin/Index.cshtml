@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+
+    if (Session["idtbuseradmin"] == null)
+    {
+        Response.Redirect("~/Administrator/Index");
+    }
+}
+
+<h2>Pagina del admin luego de iniciar session</h2>
+<h2>Nombre: @Session["nameuseradmin"].ToString()</h2>
+<a href="@Url.Action("LogOut", "Login")LogOut</a>
+
