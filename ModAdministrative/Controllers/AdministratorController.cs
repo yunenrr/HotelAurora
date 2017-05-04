@@ -27,11 +27,13 @@ namespace ModAdministrative.Controllers
 
                 if (userDetails == null)
                 {
-                    userModel.loginErrorMessage = "Datos incorrectos";
+                    userModel.loginErrorMessage = "Datos invalidos, Admin no registrado";
                     return View("Index", userModel);
                 }
                 else {
                     Session["idtbuseradmin"] = userDetails.idtbuseradmin;
+                    Session["nameuseradmin"] = userDetails.nameuseradmin;
+
                     return RedirectToAction("Index", "HomeAdmin");
                 }
             }
@@ -40,8 +42,9 @@ namespace ModAdministrative.Controllers
 
         public ActionResult LogOut()
         {
+            int admId = (int)Session["idtbuseradmin"];
             Session.Abandon();
-            return RedirectToAction("Index","Administrator")
+            return RedirectToAction("Index", "Administrator");
         }
      
         

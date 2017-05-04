@@ -13,46 +13,65 @@
 
     <title>Login</title>
 
+    <style>
+        #login-div {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #ccc;
+            padding: 10px 10px; 
+        }
+        .field-validation-error{
+            color:red;
+        }
+    </style>
+
 </head>
 <body>
     <div id="login-div">
-        @using (Html.BeginForm("Registrar", "Administrator",FormMethod.Post))
+        @using (Html.BeginForm("Registrar", "Administrator", FormMethod.Post))
         {
-            <table>
-                <tr>
-                    <td></td>
-                    <td style="text-decoration: underline">Administrador</td>
-                </tr>
-                <tr>
-                    <td>@Html.LabelFor(Model => Model.nameuseradmin)</td>
-                    <td>@Html.EditorFor(Model => Model.nameuseradmin)</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>@Html.ValidationMessageFor(Model => Model.nameuseradmin)</td>
-                </tr>
-                <tr>
-                    <td>@Html.LabelFor(Model => Model.emailuseradmin)</td>
-                    <td>@Html.EditorFor(Model => Model.emailuseradmin)</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>@Html.ValidationMessageFor(Model => Model.emailuseradmin)</td>
-                </tr>
-                <tr>
-                    <td>@Html.LabelFor(Model => Model.passworduseradmin)</td>
-                    <td>@Html.EditorFor(Model => Model.passworduseradmin)</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>@Html.ValidationMessageFor(Model => Model.passworduseradmin)</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" name="Login" value="Login"/></td>
-                    <td><input type="reset" name="Limpiar" value="Limpiar" /></td>
-                </tr>
-            </table>
+            <center>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td style="text-decoration: underline">Administrador</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(Model => Model.nameuseradmin)</td>
+                        <td>@Html.EditorFor(Model => Model.nameuseradmin)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(Model => Model.nameuseradmin)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(Model => Model.emailuseradmin)</td>
+                        <td>@Html.EditorFor(Model => Model.emailuseradmin)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(Model => Model.emailuseradmin)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(Model => Model.passworduseradmin)</td>
+                        <td>@Html.EditorFor(Model => Model.passworduseradmin)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(Model => Model.passworduseradmin)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label class="field-validation-error">@Html.DisplayFor(Model => Model.loginErrorMessage )</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name="Login" value="Login" /></td>
+                        <td><input type="reset" name="Limpiar" value="Limpiar" /></td>
+                    </tr>
+                </table>
+            </center>
         }
     </div>
 
