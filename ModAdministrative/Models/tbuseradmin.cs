@@ -18,5 +18,6 @@ namespace ModAdministrative.Models
         public string nameuseradmin { get; set; }
         public string emailuseradmin { get; set; }
         public string passworduseradmin { get; set; }
+        public string loginErrorMessage { get; set; }
     }
 }
