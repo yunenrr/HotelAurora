@@ -23,6 +23,9 @@
         <AssociationConnector Association="AuroraHotelModel.fkimageroomtoroom" ManuallyRouted="false" />
         <AssociationConnector Association="AuroraHotelModel.fkreservationtoroom" ManuallyRouted="false" />
         <AssociationConnector Association="AuroraHotelModel.fkroomtotyperoom" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AuroraHotelModel.tbrole" Width="1.5" PointX="10.375" PointY="8.125" />
+        <EntityTypeShape EntityType="AuroraHotelModel.tbuser" Width="1.5" PointX="12.625" PointY="7.875" />
+        <AssociationConnector Association="AuroraHotelModel.tbuserfkidtbrole" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

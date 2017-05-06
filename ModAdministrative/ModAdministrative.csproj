@@ -186,6 +186,9 @@
     <Compile Include="Models\tbreservation.cs">
       <DependentUpon>ZanteModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tbrole.cs">
+      <DependentUpon>ZanteModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tbroom.cs">
       <DependentUpon>ZanteModel.tt</DependentUpon>
     </Compile>
@@ -193,6 +196,9 @@
       <DependentUpon>ZanteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbsocialred.cs">
+      <DependentUpon>ZanteModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tbuser.cs">
       <DependentUpon>ZanteModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbuseradmin.cs">
@@ -240,6 +246,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Administrator\Index.cshtml" />
     <Content Include="Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

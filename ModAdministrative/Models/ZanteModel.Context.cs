@@ -39,5 +39,7 @@ namespace ModAdministrative.Models
         public virtual DbSet<tbroomtype> tbroomtypes { get; set; }
         public virtual DbSet<tbsocialred> tbsocialreds { get; set; }
         public virtual DbSet<tbuseradmin> tbuseradmins { get; set; }
+        public virtual DbSet<tbrole> tbroles { get; set; }
+        public virtual DbSet<tbuser> tbusers { get; set; }
     }
 }

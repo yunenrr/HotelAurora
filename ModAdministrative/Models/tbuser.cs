@@ -12,11 +12,13 @@ namespace ModAdministrative.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tbuseradmin
+    public partial class tbuser
     {
-        public int idtbuseradmin { get; set; }
-        public string nameuseradmin { get; set; }
-        public string emailuseradmin { get; set; }
-        public string passworduseradmin { get; set; }
+        public int idtbuser { get; set; }
+        public string nametbuser { get; set; }
+        public string password { get; set; }
+        public int idtbrole { get; set; }
+    
+        public virtual tbrole tbrole { get; set; }
     }
 }

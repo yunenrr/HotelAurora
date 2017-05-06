@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AuroraHotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AuroraHotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tbadvertising">
           <Key>
             <PropertyRef Name="idtbadvertising" />
@@ -95,6 +95,13 @@
           <Property Name="indate" Type="date" Nullable="false" />
           <Property Name="outdate" Type="date" Nullable="false" />
         </EntityType>
+        <EntityType Name="tbrole">
+          <Key>
+            <PropertyRef Name="idtbrole" />
+          </Key>
+          <Property Name="idtbrole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namerole" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
         <EntityType Name="tbroom">
           <Key>
             <PropertyRef Name="idtbroom" />
@@ -123,6 +130,15 @@
           <Property Name="idtbsocialred" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="socialred" Type="nvarchar" MaxLength="65" Nullable="false" />
           <Property Name="urlsocialred" Type="nvarchar" MaxLength="65" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbuser">
+          <Key>
+            <PropertyRef Name="idtbuser" />
+          </Key>
+          <Property Name="idtbuser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nametbuser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="idtbrole" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tbuseradmin">
           <Key>
@@ -181,6 +197,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="tbuserfkidtbrole">
+          <End Role="tbrole" Type="Self.tbrole" Multiplicity="1" />
+          <End Role="tbuser" Type="Self.tbuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbrole">
+              <PropertyRef Name="idtbrole" />
+            </Principal>
+            <Dependent Role="tbuser">
+              <PropertyRef Name="idtbrole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="AuroraHotelModelStoreContainer">
           <EntitySet Name="tbadvertising" EntityType="Self.tbadvertising" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbclient" EntityType="Self.tbclient" Schema="dbo" store:Type="Tables" />
@@ -192,9 +220,11 @@
           <EntitySet Name="tbphone" EntityType="Self.tbphone" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbpromotion" EntityType="Self.tbpromotion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbreservation" EntityType="Self.tbreservation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbrole" EntityType="Self.tbrole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbroom" EntityType="Self.tbroom" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbroomtype" EntityType="Self.tbroomtype" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbsocialred" EntityType="Self.tbsocialred" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbuser" EntityType="Self.tbuser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbuseradmin" EntityType="Self.tbuseradmin" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fkimageroomtoroom" Association="Self.fkimageroomtoroom">
             <End Role="tbroom" EntitySet="tbroom" />
@@ -212,9 +242,12 @@
             <End Role="tbroomtype" EntitySet="tbroomtype" />
             <End Role="tbroom" EntitySet="tbroom" />
           </AssociationSet>
+          <AssociationSet Name="tbuserfkidtbrole" Association="Self.tbuserfkidtbrole">
+            <End Role="tbrole" EntitySet="tbrole" />
+            <End Role="tbuser" EntitySet="tbuser" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AuroraHotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -433,7 +466,43 @@
             <End Role="tbroomtype" EntitySet="tbroomtypes" />
             <End Role="tbroom" EntitySet="tbrooms" />
           </AssociationSet>
+          <EntitySet Name="tbroles" EntityType="AuroraHotelModel.tbrole" />
+          <EntitySet Name="tbusers" EntityType="AuroraHotelModel.tbuser" />
+          <AssociationSet Name="tbuserfkidtbrole" Association="AuroraHotelModel.tbuserfkidtbrole">
+            <End Role="tbrole" EntitySet="tbroles" />
+            <End Role="tbuser" EntitySet="tbusers" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="tbrole">
+          <Key>
+            <PropertyRef Name="idtbrole" />
+          </Key>
+          <Property Name="idtbrole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namerole" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbusers" Relationship="AuroraHotelModel.tbuserfkidtbrole" FromRole="tbrole" ToRole="tbuser" />
+        </EntityType>
+        <EntityType Name="tbuser">
+          <Key>
+            <PropertyRef Name="idtbuser" />
+          </Key>
+          <Property Name="idtbuser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nametbuser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="idtbrole" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbrole" Relationship="AuroraHotelModel.tbuserfkidtbrole" FromRole="tbuser" ToRole="tbrole" />
+        </EntityType>
+        <Association Name="tbuserfkidtbrole">
+          <End Type="AuroraHotelModel.tbrole" Role="tbrole" Multiplicity="1" />
+          <End Type="AuroraHotelModel.tbuser" Role="tbuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbrole">
+              <PropertyRef Name="idtbrole" />
+            </Principal>
+            <Dependent Role="tbuser">
+              <PropertyRef Name="idtbrole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -579,6 +648,24 @@
                 <ScalarProperty Name="nameuseradmin" ColumnName="nameuseradmin" />
                 <ScalarProperty Name="emailuseradmin" ColumnName="emailuseradmin" />
                 <ScalarProperty Name="passworduseradmin" ColumnName="passworduseradmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbroles">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbrole">
+              <MappingFragment StoreEntitySet="tbrole">
+                <ScalarProperty Name="namerole" ColumnName="namerole" />
+                <ScalarProperty Name="idtbrole" ColumnName="idtbrole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbusers">
+            <EntityTypeMapping TypeName="AuroraHotelModel.tbuser">
+              <MappingFragment StoreEntitySet="tbuser">
+                <ScalarProperty Name="idtbrole" ColumnName="idtbrole" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="nametbuser" ColumnName="nametbuser" />
+                <ScalarProperty Name="idtbuser" ColumnName="idtbuser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
