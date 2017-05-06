@@ -13,6 +13,14 @@ namespace ModAdministrative
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //Ruta para el login
+            routes.MapRoute
+            (
+                name: "Login",
+                url: "login",
+                defaults: new { controller = "Login", action = "Login" }
+            );
+
             routes.MapRoute(
                 name: "ModAdministrative",
                 url: "{controller}/{action}/{id}",

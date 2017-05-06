@@ -1,0 +1,52 @@
+﻿@model ModAdministrative.Models.tbuser
+
+@{
+    ViewBag.Title = "Información sobre el usuario";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Información del usuario</h2>
+
+<div>
+    <h4>Información:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Usuario:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nametbuser)
+        </dd>
+
+        <dt>
+            Contraseña:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            Role:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbrole.namerole)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idtbuser }) |
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>
+<script type="text/javascript">
+    $(document).ready
+    (
+        function ()
+        {
+            $("#liUser").addClass("active");
+        }//Fin de la función
+    );
+</script>

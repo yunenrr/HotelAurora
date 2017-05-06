@@ -1,7 +1,7 @@
 ﻿@model List<WebApplication2.Models.Room>
 
 @{
-    ViewBag.Title = "Estado del Hotel";
+    ViewBag.Title = "Estado del hotel";
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
 }
 
@@ -38,3 +38,12 @@
     }
 
 </table>
+<script type="text/javascript">
+    $(document).ready
+    (
+        function ()
+        {
+            $("#liStateToday").addClass("active");
+        }//Fin de la función
+    );
+</script>

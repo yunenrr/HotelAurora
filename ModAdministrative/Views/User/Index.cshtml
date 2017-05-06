@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ModAdministrative.Models.tbuser>
+
+@{
+    ViewBag.Title = "Usuarios";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Lista de usuarios</h2>
+
+<p>
+    @Html.ActionLink("Agregar usuario", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Usuario:
+        </th>
+        <th>
+            Contraseña:
+        </th>
+        <th>
+            Role:
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nametbuser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbrole.namerole)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idtbuser }) |
+            @Html.ActionLink("Ver", "Details", new { id=item.idtbuser }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idtbuser })
+        </td>
+    </tr>
+}
+
+</table>
+<script type="text/javascript">
+    $(document).ready
+    (
+        function ()
+        {
+            $("#liUser").addClass("active");
+        }//Fin de la función
+    );
+</script>

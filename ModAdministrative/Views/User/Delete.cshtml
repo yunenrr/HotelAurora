@@ -1,31 +1,39 @@
-﻿@model ModAdministrative.Models.tbsocialred
+﻿@model ModAdministrative.Models.tbuser
 
 @{
-    ViewBag.Title = "Eliminar";
+    ViewBag.Title = "Eliminar usuario";
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
 }
 
-<h2>Eliminar red social</h2>
+<h2>Eiminar usuario</h2>
 
-<h3>¿Está seguro de que la desea eliminar?</h3>
+<h3>¿Está seguro de que lo desea eliminar?</h3>
 <div>
-    <h4>Información</h4>
+    <h4>Información:</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Nombre:
+            Usuario:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.socialred)
+            @Html.DisplayFor(model => model.nametbuser)
         </dd>
 
         <dt>
-            URL:
+            Contraseña:
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.urlsocialred)
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            Role:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbrole.namerole)
         </dd>
 
     </dl>
@@ -35,7 +43,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Eliminar" class="btn btn-default" /> |
-            @Html.ActionLink("Volver a la lista de redes sociales", "Index")
+            @Html.ActionLink("Volver a la lista", "Index")
         </div>
     }
 </div>
@@ -44,7 +52,7 @@
     (
         function ()
         {
-            $("#liSocialRed").addClass("active");
+            $("#liUser").addClass("active");
         }//Fin de la función
     );
 </script>
