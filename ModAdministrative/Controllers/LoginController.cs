@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using ModAdministrative.Models;
+
 namespace ModAdministrative.Controllers
 {
     public class LoginController : Controller
@@ -13,6 +15,43 @@ namespace ModAdministrative.Controllers
         {
             return View();
         }
+
+        //Iniciando login con session
+        [HttpPost]
+        public ActionResult Login(tbuser userModel)
+        {
+            if (ModelState.IsValid)
+            {
+                using (aurorahotelEntities db = new aurorahotelEntities())
+                {
+                    var obj = db.tbusers.Where(a => a.nametbuser == userModel.nametbuser &&
+                                                    a.password == userModel.password).FirstOrDefault();
+
+                    if (obj != null)
+                    {
+                        Session["nametbuser"] = obj.nametbuser.ToString();
+                        Session["password"] = obj.password.ToString();
+
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        userModel.loginErrorMessage = "El usuario no existe,los datos son incorrectos";
+                        return RedirectToAction("Login", "Login");
+                    }
+                }
+            }
+            return View(userModel);
+        }
+
+        //Cerrar login con session
+        public ActionResult LogOut()
+        {
+            string admId = (string)Session["nametbuser"];
+            Session.Abandon();
+            return RedirectToAction("Login", "Login");
+        }
+
 
         //// GET: Login/Details/5
         //public ActionResult Details(int id)

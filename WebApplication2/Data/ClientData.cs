@@ -21,14 +21,14 @@ namespace WebApplication2.Data
         }
 
         //Metodo para insertar un cliente
-        public int insertClient(/*int idtbclient,*/ string dni, string name, string surnames, string email, string phone)
+        public int insertClient(string dni, string name, string surnames, string email, string phone)
         {
             //conexion con la bd
             SqlConnection sqlConn = new SqlConnection(this.connectionString);
 
             //string sql
-            string sqlSelect = "insert into tbclient values(1, '" + dni + "' ,'" + name + "','" + surnames + "','" + email + "','" + phone + "');";
-
+            string sqlSelect = "insert into tbclient values('" + dni + "' ,'" + name + "','" + surnames + "','" + email + "','" + phone + "');";
+           
             //establecer la conexion con el adaptador
             SqlDataAdapter sqlDataAdapterProperty = new SqlDataAdapter();
 
@@ -39,7 +39,7 @@ namespace WebApplication2.Data
 
             //cerrar la conexion con el adaptador
             sqlDataAdapterProperty.SelectCommand.Connection.Close();
-
+           
             return 1;
         } // fin metodo insertar cliente
 

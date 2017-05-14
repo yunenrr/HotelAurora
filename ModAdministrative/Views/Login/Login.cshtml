@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
 }
 
-@using (Html.BeginForm("Enter", "Login", FormMethod.Post))
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
 {
     <form role="form">
         <fieldset>
@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <div>
-                    @*@Html.ValidationMessageFor(Model => Model.loginErrorMessage, "", new { @class = "text-danger" })*@
+                    @Html.ValidationMessageFor(Model => Model.loginErrorMessage, "", new { @class = "text-danger" })
                 </div>
             </div>
             <center><button class="btn btn-primary" type="submit">Ingresar</button></center>

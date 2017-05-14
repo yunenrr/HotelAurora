@@ -2,6 +2,14 @@
 @{
     ViewBag.Title = "Inicio";
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    if (Session["nametbuser"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
 }
 
 <h2>Esta es la pantalla principal</h2>
+<h2>Bienvenido: @Session["nametbuser"].ToString()</h2>
+@*<a href="@Url.Action("LogOut", "Login")">LogOut</a>*@
+

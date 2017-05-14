@@ -22,7 +22,7 @@ namespace WebApplication2.Business
         }
 
         //metodo insertar
-        public int insertClient(/*int idtbclient,*/ string dni, string name, string surnames, string email, string phone)
+        public int insertClient(string dni, string name, string surnames, string email, string phone)
         {
             return this.clientData.insertClient(dni,  name,  surnames,  email,  phone);
         }

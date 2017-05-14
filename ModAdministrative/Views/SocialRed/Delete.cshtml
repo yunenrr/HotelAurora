@@ -3,6 +3,11 @@
 @{
     ViewBag.Title = "Eliminar";
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    if (Session["nametbuser"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
 }
 
 <h2>Eliminar red social</h2>

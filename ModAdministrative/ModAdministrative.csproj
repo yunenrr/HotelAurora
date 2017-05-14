@@ -148,8 +148,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdministratorController.cs" />
-    <Compile Include="Controllers\HomeAdminController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\SocialRedController.cs" />
@@ -157,7 +155,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Administrator.cs" />
     <Compile Include="Models\tbadvertising.cs">
       <DependentUpon>ZanteModel.tt</DependentUpon>
     </Compile>
@@ -246,8 +243,6 @@
     <Content Include="Views\Room\AvailablesRoom.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Administrator\Index.cshtml" />
-    <Content Include="Views\HomeAdmin\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />

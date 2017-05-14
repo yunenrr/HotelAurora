@@ -3,6 +3,11 @@
 @{
     ViewBag.Title = "Agregar red social";
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    if (Session["nametbuser"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
 }
 
 <h2>Agregar red social</h2>

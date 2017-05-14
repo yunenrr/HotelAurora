@@ -3,6 +3,11 @@
 @{
     ViewBag.Title = "Información sobre el usuario";
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    if (Session["nametbuser"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
 }
 
 <h2>Información del usuario</h2>

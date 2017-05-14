@@ -11,20 +11,20 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTest1
     {
-        //    [TestMethod]
-        //    public void TestMethod1()
+        //[TestMethod]
+        //public void TestMethod1()
+        //{
+
+        //    ReservationData rd = new ReservationData("Data Source=jocoma.database.windows.net;Initial Catalog=aurorahotel;Persist Security Info=True;User ID=jocoma;Password=jcm_12345");
+
+        //    List<int> availables = rd.verifyReservation(1, "05/02/2017", "05/03/2017");
+
+        //    foreach (int i in availables)
         //    {
-
-        //        ReservationData rd = new ReservationData("Data Source=jocoma.database.windows.net;Initial Catalog=aurorahotel;Persist Security Info=True;User ID=jocoma;Password=jcm_12345");
-
-        //        List<int> availables = rd.verifyReservation(1, "05/02/2017", "05/03/2017");
-
-        //        foreach (int i in availables)
-        //        {
-        //            Console.WriteLine(i + " \n ");
-        //        }
-
+        //        Console.WriteLine(i + " \n ");
         //    }
+
+        //}
 
 
         //[TestMethod]
@@ -63,47 +63,41 @@ namespace UnitTestProject1
 
         //    Console.WriteLine("La reservacion fue: ");
 
-
-
-        //}
-        ////test insertar clientes
         //[TestMethod]
-        //public void TestMethod4()
+        //public void TestMethod5()
         //{
-        //    ClientData rs = new ClientData("Data Source = jocoma.database.windows.net; Initial Catalog = aurorahotel; Persist Security Info = True; User ID = jocoma; Password = jcm_12345");
+        //    RoomData rd = new RoomData("Data Source = jocoma.database.windows.net; Initial Catalog = aurorahotel; Persist Security Info = True; User ID = jocoma; Password = jcm_12345");
 
+        //    List<Room> rooms = rd.getRoomsState();
 
-        //   // int idtbclient = 1;
-        //    string dni = "3-356-523";
-        //    string name = "Sacarias";
-        //    string surnames = "Jiménez Obregón";
-        //    string email = "saca24@gmail.com";
-        //    string phone = "8888-8888";
-
-
-        //    int result = rs.insertClient(dni, name, surnames, email, phone);
-
-        //    Console.WriteLine("El cliente fue: "+result);
-
-
-
+        //    foreach (Room i in rooms)
+        //    {
+        //        Console.WriteLine(i.IdRoom + " - " + i.NameRoom + " - " + i.TypeRoom + " - " + i.AvailabilityRoom + " - \n");
+        //    }
         //}
 
+        /*Insertar cliente*/
         [TestMethod]
-        public void TestMethod5()
+        public void TestMethod6()
         {
+            ClientData rs = new ClientData("Data Source = jocoma.database.windows.net; Initial Catalog = aurorahotel; Persist Security Info = True; User ID = jocoma; Password = jcm_12345");
 
-            RoomData rd = new RoomData("Data Source = jocoma.database.windows.net; Initial Catalog = aurorahotel; Persist Security Info = True; User ID = jocoma; Password = jcm_12345");
+            string dni = "304530120";
+            string name = "Francisca";
+            string surnames = "Martinez";
+            string email = "fran24@gmail.com";
+            string phone = "25561010";
 
-            List<Room> rooms = rd.getRoomsState();
-
-            foreach (Room i in rooms)
-            {
-                Console.WriteLine(i.IdRoom + " - " + i.NameRoom + " - " + i.TypeRoom + " - " + i.AvailabilityRoom + " - \n");
-            }
-
-
+            int result = rs.insertClient(dni, name, surnames, email, phone);
+            Console.WriteLine("El cliente fue: " + result);
         }
+
+
+
+
+
+
+
 
     }
 }

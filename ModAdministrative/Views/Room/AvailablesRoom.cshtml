@@ -3,6 +3,12 @@
 @{
     ViewBag.Title = "Estado del hotel";
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    if (Session["nametbuser"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+
 }
 
 <h2>Estado del hotel para el día de hoy</h2>

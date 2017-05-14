@@ -19,9 +19,9 @@ namespace WebApplication2.Controllers
         //metodo insertar cliente
         [Route("api/Client/insertClient/{dni, name, surnames, email, phone}")]
         [HttpGet]
-        public int insertClient(/*int idtbclient,*/ string dni, string name, string surnames, string email, string phone)
+        public int insertClient(string dni, string name, string surnames, string email, string phone)
         {
-            return clientBusiness.insertClient(/*int idtbclient,*/ dni, name, surnames, email, phone);
+            return clientBusiness.insertClient(dni, name, surnames, email, phone);
         }
 
         //metodo actualizar cliente

@@ -3,6 +3,11 @@
 @{
     ViewBag.Title = "Redes Sociales";
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    if (Session["nametbuser"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
 }
 
 <h2>Redes Sociales</h2>
