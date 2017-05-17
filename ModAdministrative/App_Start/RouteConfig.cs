@@ -24,7 +24,7 @@ namespace ModAdministrative
             routes.MapRoute(
                 name: "ModAdministrative",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "HomeAdmin", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
             );
         }
     }
