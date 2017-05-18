@@ -489,3 +489,5 @@ C:\Users\Daniel\Documents\ProyectosGit\HotelAurora\WebApplication2\obj\Debug\Web
 C:\Users\Daniel\Documents\ProyectosGit\HotelAurora\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
 C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\bin\itextsharp.dll
 C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\bin\itextsharp.xml
+C:\Users\yunen\Desktop\Universidad\HotelAurora\WebApplication2\bin\itextsharp.dll
+C:\Users\yunen\Desktop\Universidad\HotelAurora\WebApplication2\bin\itextsharp.xml

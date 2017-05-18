@@ -31,6 +31,7 @@ namespace ModAdministrative.Controllers
                     {
                         Session["nametbuser"] = obj.nametbuser.ToString();
                         Session["password"] = obj.password.ToString();
+                        Session["role"] = obj.idtbrole.ToString();
 
                         return RedirectToAction("Index", "Home");
                     }

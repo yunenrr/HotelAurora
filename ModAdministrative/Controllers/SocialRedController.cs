@@ -17,12 +17,24 @@ namespace ModAdministrative.Controllers
         // GET: SocialRed
         public ActionResult Index()
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View(db.tbsocialreds.ToList());
         }
 
         // GET: SocialRed/Details/5
         public ActionResult Details(int? id)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -38,6 +50,12 @@ namespace ModAdministrative.Controllers
         // GET: SocialRed/Create
         public ActionResult Create()
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View();
         }
 
@@ -48,6 +66,12 @@ namespace ModAdministrative.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "idtbsocialred,socialred,urlsocialred")] tbsocialred tbsocialred)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.tbsocialreds.Add(tbsocialred);
@@ -61,6 +85,12 @@ namespace ModAdministrative.Controllers
         // GET: SocialRed/Edit/5
         public ActionResult Edit(int? id)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -80,6 +110,12 @@ namespace ModAdministrative.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "idtbsocialred,socialred,urlsocialred")] tbsocialred tbsocialred)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(tbsocialred).State = EntityState.Modified;
@@ -92,6 +128,12 @@ namespace ModAdministrative.Controllers
         // GET: SocialRed/Delete/5
         public ActionResult Delete(int? id)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
