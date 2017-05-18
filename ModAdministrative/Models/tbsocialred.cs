@@ -11,11 +11,18 @@ namespace ModAdministrative.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbsocialred
     {
         public int idtbsocialred { get; set; }
+
+        [Required(ErrorMessage ="Ingrese el nombre de la red social")]
+        [StringLength(65, ErrorMessage = "El tamaño máximo es de 65 carácteres.")]
         public string socialred { get; set; }
+
+        [Required(ErrorMessage = "Ingrese la URL de la red social")]
+        [StringLength(65, ErrorMessage = "El tamaño máximo es de 65 carácteres.")]
         public string urlsocialred { get; set; }
     }
 }

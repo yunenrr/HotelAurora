@@ -17,6 +17,12 @@ namespace ModAdministrative.Controllers
         // GET: User
         public ActionResult Index()
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             var tbusers = db.tbusers.Include(t => t.tbrole);
             return View(tbusers.ToList());
         }
@@ -24,6 +30,12 @@ namespace ModAdministrative.Controllers
         // GET: User/Details/5
         public ActionResult Details(int? id)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +51,12 @@ namespace ModAdministrative.Controllers
         // GET: User/Create
         public ActionResult Create()
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             ViewBag.idtbrole = new SelectList(db.tbroles, "idtbrole", "namerole");
             return View();
         }
@@ -50,6 +68,12 @@ namespace ModAdministrative.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "idtbuser,nametbuser,password,idtbrole")] tbuser tbuser)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.tbusers.Add(tbuser);
@@ -64,6 +88,12 @@ namespace ModAdministrative.Controllers
         // GET: User/Edit/5
         public ActionResult Edit(int? id)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -84,6 +114,12 @@ namespace ModAdministrative.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "idtbuser,nametbuser,password,idtbrole")] tbuser tbuser)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(tbuser).State = EntityState.Modified;
@@ -97,6 +133,12 @@ namespace ModAdministrative.Controllers
         // GET: User/Delete/5
         public ActionResult Delete(int? id)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
