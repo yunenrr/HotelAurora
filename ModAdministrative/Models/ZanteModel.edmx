@@ -367,7 +367,7 @@
           <Property Name="descriptionroom" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="quantitypersons" Type="Int32" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="imagepathroomtype" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="imagepathroomtype" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="tbrooms" Relationship="Self.fkroomtotyperoom" FromRole="tbroomtype" ToRole="tbroom" />
         </EntityType>
         <EntityType Name="tbsocialred">

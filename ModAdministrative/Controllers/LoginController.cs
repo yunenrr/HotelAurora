@@ -36,7 +36,7 @@ namespace ModAdministrative.Controllers
                     }
                     else
                     {
-                        userModel.loginErrorMessage = "El usuario no existe,los datos son incorrectos";
+                        //userModel.loginErrorMessage = "El usuario no existe,los datos son incorrectos";
                         return RedirectToAction("Login", "Login");
                     }
                 }

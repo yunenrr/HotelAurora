@@ -51,8 +51,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.imagepathroomtype, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.imagepathroomtype, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.imagepathroomtype, new { htmlAttributes = new { @type="hidden" , @id= "imagepathroomtype" } })
                 @Html.ValidationMessageFor(model => model.imagepathroomtype, "", new { @class = "text-danger" })
+                <input type="file" id="fileImage">
             </div>
         </div>
 
@@ -71,3 +72,17 @@
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    function leerArchivo() {
+        if (this.files && this.files[0]) {
+            var FR = new FileReader();
+            FR.onload = function (e) {
+                document.getElementById("imagepathroomtype").value = e.target.result;
+                console.log(e.target.result);
+            };
+            FR.readAsDataURL(this.files[0]);
+        }
+    }
+    document.getElementById("fileImage").addEventListener("change", leerArchivo, false);
+</script>

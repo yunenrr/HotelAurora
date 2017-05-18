@@ -45,7 +45,7 @@
             @Html.DisplayFor(modelItem => item.price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.imagepathroomtype)
+            <img width="140" height="140" src="@Html.DisplayFor(modelItem => item.imagepathroomtype)" />
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.idtbroomtype }) |

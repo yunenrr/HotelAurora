@@ -18,8 +18,7 @@ namespace ModAdministrative.Models
         public string nametbuser { get; set; }
         public string password { get; set; }
         public int idtbrole { get; set; }
-        public string loginErrorMessage { get; set; }
-
+    
         public virtual tbrole tbrole { get; set; }
     }
 }
