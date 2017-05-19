@@ -28,9 +28,7 @@
                         <ul class="dropdown-menu" role="menu">
 
                             <li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Perfil</a></li>
-                            <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Configuración</a></li>
-                            <li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Salir</a></li>
-                        
+                            <li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Configuración</a></li>                        
                             <li>@Html.ActionLink("Cerrar sesion", "LogOut", "Login")</li>
                         
                         </ul>
@@ -46,7 +44,7 @@
             <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
             <li><a href="#">Modificar páginas</a></li>
             <li><a href="#">Listado de reservaciones</a></li>
-            <li><a href="#">Administrar habitaciones</a></li>
+            <li id="liRoom">@Html.ActionLink("Administrar habitaciones", "Index", "Room")</li>
             <li id="liStateToday">@Html.ActionLink("Estado del hotel (Hoy)", "AvailablesRoom", "Room")</li>
             <li><a href="#">Consultar disponibilidad de habitaciones</a></li>
             <li id="liUser">@Html.ActionLink("Usuarios", "Index", "User")</li>

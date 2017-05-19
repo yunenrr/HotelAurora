@@ -250,7 +250,6 @@
     <Content Include="Views\SocialRed\Details.cshtml" />
     <Content Include="Views\SocialRed\Edit.cshtml" />
     <Content Include="Views\SocialRed\Index.cshtml" />
-    <Content Include="Views\Room\AvailablesRoom.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
@@ -265,6 +264,12 @@
     <Content Include="Views\RoomType\Details.cshtml" />
     <Content Include="Views\RoomType\Edit.cshtml" />
     <Content Include="Views\RoomType\Index.cshtml" />
+    <Content Include="Views\Room\Create.cshtml" />
+    <Content Include="Views\Room\Delete.cshtml" />
+    <Content Include="Views\Room\Details.cshtml" />
+    <Content Include="Views\Room\Edit.cshtml" />
+    <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\Room\AvailablesRoom.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

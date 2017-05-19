@@ -18,11 +18,11 @@ namespace ModAdministrative.Models
         public int idtbuser { get; set; }
 
         [Required(ErrorMessage = "Ingrese el nombre de usuario")]
-        [StringLength(65, ErrorMessage = "El tamaño máximo es de 50 carácteres.")]
+        [StringLength(50, ErrorMessage = "El tamaño máximo es de 50 carácteres.")]
         public string nametbuser { get; set; }
 
         [Required(ErrorMessage = "Ingrese la contraseña")]
-        [StringLength(65, ErrorMessage = "El tamaño máximo es de 25 carácteres.")]
+        [StringLength(25, ErrorMessage = "El tamaño máximo es de 25 carácteres.")]
         public string password { get; set; }
         public int idtbrole { get; set; }
     

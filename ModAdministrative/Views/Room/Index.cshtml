@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ModAdministrative.Models.tbroom>
+
+@{
+    ViewBag.Title = "Habitaciones";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Habitaciones</h2>
+
+<p>
+    @Html.ActionLink("Agregar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Habitación:
+        </th>
+        <th>
+            Características:
+        </th>
+        <th>
+            Disponibilidad:
+        </th>
+        <th>
+            Tipo habitación:
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nameroom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.characteristics)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.availability)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbroomtype.roomtype)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idtbroom }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idtbroom }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idtbroom })
+        </td>
+    </tr>
+}
+
+</table>
+
+<script type="text/javascript">
+    $(document).ready
+    (
+        function ()
+        {
+            $("#liRoom").addClass("active");
+        }//Fin de la función
+    );
+</script>

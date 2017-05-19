@@ -1,0 +1,61 @@
+﻿@model ModAdministrative.Models.tbroom
+
+@{
+    ViewBag.Title = "Detalles habitación";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Habitación</h2>
+
+<div>
+    <h4>Información</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Habitación:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nameroom)
+        </dd>
+
+        <dt>
+            Características:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.characteristics)
+        </dd>
+
+        <dt>
+            Disponibilidad:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.availability)
+        </dd>
+
+        <dt>
+            Tipo habitación:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbroomtype.roomtype)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idtbroom }) |
+    @Html.ActionLink("Volver a la lista de habitaciones", "Index")
+</p>
+
+<script type="text/javascript">
+    $(document).ready
+    (
+        function ()
+        {
+            $("#liRoom").addClass("active");
+        }//Fin de la función
+    );
+</script>
