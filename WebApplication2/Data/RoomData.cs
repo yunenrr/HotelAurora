@@ -196,6 +196,98 @@ namespace WebApplication2.Data
             return roomList;
         }
 
+        public List<Room> getRoomsStateDates(string inDate, string outDate)
+        {
+            //conexion con la bd
+            SqlConnection sqlConn = new SqlConnection(this.connectionString);
+
+            //string sql
+            string sqlSelect = "select idtbroom, nameroom, typeroom, characteristics from tbroom where idtbroom not in(" +
+                                    "select  room from tbreservation where indate BETWEEN '" + inDate + "' AND '" +
+                                    outDate + "' or outdate between '" + inDate + "' AND '" + outDate + "');";
+
+            //establecer la conexion con el adaptador
+            SqlDataAdapter sqlDataAdapterProperty = new SqlDataAdapter();
+
+            //configurar el adaptador
+            sqlDataAdapterProperty.SelectCommand = new SqlCommand();
+            sqlDataAdapterProperty.SelectCommand.CommandText = sqlSelect;
+            sqlDataAdapterProperty.SelectCommand.Connection = sqlConn;
+
+            //definir el data set
+            DataSet datasetRoomType = new DataSet();
+            List<Room> roomList = new List<Room>();
+
+            //dataset para guardar los resultados de la consulta
+            sqlDataAdapterProperty.Fill(datasetRoomType, "tbroom");
+
+            //cerrar la conexion con el adaptador
+            sqlDataAdapterProperty.SelectCommand.Connection.Close();
+
+            DataRowCollection dataRowCollection = datasetRoomType.Tables["tbroom"].Rows;
+
+            //String today = DateTime.Now.ToString("yyyy-MM-dd");
+            List<int> availablesToday = this.verifyStateHotelDates(inDate, outDate);
+
+            foreach (DataRow currentRow in dataRowCollection)
+            {
+                int idRoom = Int32.Parse(currentRow["idtbroom"].ToString());
+                string nameRoom = currentRow["nameroom"].ToString();
+                int typeRoom = Int32.Parse(currentRow["typeroom"].ToString());
+                string characteristics = currentRow["characteristics"].ToString();
+                Boolean available = false;
+                if (availablesToday.Contains(idRoom))
+                {
+                    available = true;
+                }
+                Room room = new Room(idRoom, nameRoom, characteristics, available, typeRoom);
+
+                roomList.Add(room);
+            }//Fin del foreach
+
+            return roomList;
+        }
+
+        public List<int> verifyStateHotelDates(string inDate, string outDate)
+        {
+            //conexion con la bd
+            SqlConnection sqlConn = new SqlConnection(this.connectionString);
+
+            //string sql
+            string sqlSelect = "select idtbroom, nameroom, typeroom from tbroom where idtbroom not in(" +
+                                    "select  room from tbreservation where indate BETWEEN '" + inDate + "' AND '" +
+                                    outDate + "' or outdate between '" + inDate + "' AND '" + outDate + "');";
+
+
+            //establecer la conexion con el adaptador
+            SqlDataAdapter sqlDataAdapterProperty = new SqlDataAdapter();
+
+            //configurar el adaptador
+            sqlDataAdapterProperty.SelectCommand = new SqlCommand();
+            sqlDataAdapterProperty.SelectCommand.CommandText = sqlSelect;
+            sqlDataAdapterProperty.SelectCommand.Connection = sqlConn;
+
+            //definir el data set
+            DataSet datasetRooms = new DataSet();
+            List<int> roomsAvailableList = new List<int>();
+
+            //dataset para guardar los resultados de la consulta
+            sqlDataAdapterProperty.Fill(datasetRooms, "tbreservation");
+
+            //cerrar la conexion con el adaptador
+            sqlDataAdapterProperty.SelectCommand.Connection.Close();
+
+            DataRowCollection dataRowCollection = datasetRooms.Tables["tbreservation"].Rows;
+
+            foreach (DataRow currentRow in dataRowCollection)
+            {
+                int room = Int32.Parse(currentRow["idtbroom"].ToString());
+                roomsAvailableList.Add(room);
+            }
+
+            return roomsAvailableList;
+        }
+
         ~RoomData() { }//Destructor
     }//Fin de la clase
 }

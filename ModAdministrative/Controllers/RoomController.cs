@@ -137,5 +137,14 @@ namespace ModAdministrative.Controllers
             RoomBusiness rb = new RoomBusiness(WebConfigurationManager.ConnectionStrings["AzureConnString"].ToString());
             return View(rb.getRoomsState().ToList());
         }
+
+        public ActionResult AvailablesRoomDates()
+        {
+            string indate = "2017-05-16";
+            string outdate = "2017-05-27";
+            RoomBusiness rb = new RoomBusiness(WebConfigurationManager.ConnectionStrings["AzureConnString"].ToString());
+            return View(rb.getRoomsStateDates(indate, outdate).ToList());
+        }
+
     }//Fin de la clase
 }

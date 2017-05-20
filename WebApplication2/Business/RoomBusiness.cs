@@ -35,6 +35,11 @@ namespace WebApplication2.Business
             return this.roomData.getRoomsState();
         }
 
+        public List<Room> getRoomsStateDates(string inDate, string outDate)
+        {
+            return this.roomData.getRoomsStateDates(inDate, outDate);
+        }
+
         ~RoomBusiness() { } //Destructor
     }//Fin de la clase
 }

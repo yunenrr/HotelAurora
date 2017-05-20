@@ -270,6 +270,7 @@
     <Content Include="Views\Room\Edit.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
     <Content Include="Views\Room\AvailablesRoom.cshtml" />
+    <Content Include="Views\Room\AvailablesRoomDates.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
