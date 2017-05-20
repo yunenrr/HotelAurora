@@ -3,6 +3,11 @@
 @{
     ViewBag.Title = "Agregar habitación";
     Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    if (Session["nametbuser"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
 }
 
 <h2>Agregar habitación</h2>

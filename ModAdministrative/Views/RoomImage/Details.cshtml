@@ -1,0 +1,41 @@
+﻿@model ModAdministrative.Models.tbimageroom
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    if (Session["nametbuser"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbimageroom</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.imageroompath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imageroompath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbroom.nameroom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbroom.nameroom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idtbimageroom }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

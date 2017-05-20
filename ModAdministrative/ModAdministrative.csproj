@@ -159,6 +159,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PdfController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\RoomImageController.cs" />
     <Compile Include="Controllers\RoomTypeController.cs" />
     <Compile Include="Controllers\SocialRedController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -271,6 +272,11 @@
     <Content Include="Views\Room\Index.cshtml" />
     <Content Include="Views\Room\AvailablesRoom.cshtml" />
     <Content Include="Views\Room\AvailablesRoomDates.cshtml" />
+    <Content Include="Views\RoomImage\Create.cshtml" />
+    <Content Include="Views\RoomImage\Delete.cshtml" />
+    <Content Include="Views\RoomImage\Details.cshtml" />
+    <Content Include="Views\RoomImage\Edit.cshtml" />
+    <Content Include="Views\RoomImage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
