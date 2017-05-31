@@ -26,7 +26,7 @@
             success: function (data) {
                 var interval = (data.length > 5) ? 5 : data.length;
                 for (var i = 0; i < interval; i++) {
-                    var imagePath = '/Content/images/gallery/' + data[i].ImageGalleryPath;
+                    var imagePath = '' + data[i].ImageGalleryPath;
                     $('<div class="owl-item cloned" style="width: 261.8px;"><div class="item">' +
                     '<a class="hover_effect h_yellow h_lightbox" href="' + imagePath + '">' + 
                     '<img src="' + imagePath + '" alt="Image">' +
@@ -104,7 +104,7 @@
                                 '<figure>'+
                                     '<div class="price">¢' + data[i].PriceRoomType + '<span>/ noche</span></div>' +
                                     '<a class="hover_effect h_blue h_link" href="../roomtype/' + data[i].IdRoomType + '">' +
-                                        '<img src="/Content/images/rooms/'+data[i].ImagePathRoomType+'" class="img-responsive" alt="Image">'+
+                                        '<img src="'+data[i].ImagePathRoomType+'" class="img-responsive" alt="Image">'+
                                     '</a>'+
                                     '<figcaption>'+
                                         '<h5><a href="../roomtype/' + data[i].IdRoomType + '">' + data[i].NameRoomType + '</a></h5>' +

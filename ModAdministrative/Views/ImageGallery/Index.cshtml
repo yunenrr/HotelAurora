@@ -1,0 +1,32 @@
+﻿@model IEnumerable<ModAdministrative.Models.tbimagegallery>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Imagen
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img width="140" height="140" src="@Html.DisplayFor(model => item.imagegallerypath)" />
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.idtbimagegallery })
+        </td>
+    </tr>
+}
+
+</table>

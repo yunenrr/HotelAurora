@@ -12,7 +12,7 @@
             type: "Get",
             success: function (data) {
                 for (var i = 0; i < data.length; i++) {
-                    var imagePath = '/Content/images/gallery/' + data[i].ImageGalleryPath;
+                    var imagePath = '' + data[i].ImageGalleryPath;
                     $('<figure class="g_item col-md-3 col-sm-6 g_swimming_pool"><a href=' + imagePath + ' class="hover_effect h_lightbox h_blue"><img src= ' + imagePath + ' class="img-responsive" alt="Image"></a<figure>').appendTo("#images");
                 }
             },

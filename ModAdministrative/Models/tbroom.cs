@@ -11,8 +11,7 @@ namespace ModAdministrative.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class tbroom
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,13 +22,7 @@ namespace ModAdministrative.Models
         }
     
         public int idtbroom { get; set; }
-
-        [Required(ErrorMessage = "Ingrese el nombre/número de la habitación")]
-        [StringLength(65, ErrorMessage = "El tamaño máximo es de 65 carácteres.")]
         public string nameroom { get; set; }
-
-        [Required(ErrorMessage = "Ingrese características de la habitación")]
-        [StringLength(300, ErrorMessage = "El tamaño máximo es de 300 carácteres.")]
         public string characteristics { get; set; }
         public Nullable<bool> availability { get; set; }
         public int typeroom { get; set; }
@@ -39,5 +32,5 @@ namespace ModAdministrative.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbreservation> tbreservations { get; set; }
         public virtual tbroomtype tbroomtype { get; set; }
-    }//Fin de la clase
+    }
 }

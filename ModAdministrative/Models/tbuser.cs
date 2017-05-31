@@ -11,18 +11,11 @@ namespace ModAdministrative.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class tbuser
     {
         public int idtbuser { get; set; }
-
-        [Required(ErrorMessage = "Ingrese el nombre de usuario")]
-        [StringLength(50, ErrorMessage = "El tamaño máximo es de 50 carácteres.")]
         public string nametbuser { get; set; }
-
-        [Required(ErrorMessage = "Ingrese la contraseña")]
-        [StringLength(25, ErrorMessage = "El tamaño máximo es de 25 carácteres.")]
         public string password { get; set; }
         public int idtbrole { get; set; }
     

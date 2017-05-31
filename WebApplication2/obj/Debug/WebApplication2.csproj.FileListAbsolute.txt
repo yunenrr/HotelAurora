@@ -593,3 +593,4 @@ C:\Users\dayla\Documents\HotelAurora\WebApplication2\obj\Debug\WebApplication2.d
 C:\Users\dayla\Documents\HotelAurora\WebApplication2\obj\Debug\WebApplication2.pdb
 C:\Users\Daniel\Documents\ProyectosGit\HotelAurora\WebApplication2\bin\itextsharp.dll
 C:\Users\Daniel\Documents\ProyectosGit\HotelAurora\WebApplication2\bin\itextsharp.xml
+C:\Users\gollo\Documents\Visual Studio 2015\Projects\HotelAurora\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache

@@ -57,14 +57,14 @@
             <PropertyRef Name="idtbimagegallery" />
           </Key>
           <Property Name="idtbimagegallery" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="imagegallerypath" Type="nvarchar" MaxLength="65" Nullable="false" />
+          <Property Name="imagegallerypath" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="tbimageroom">
           <Key>
             <PropertyRef Name="idtbimageroom" />
           </Key>
           <Property Name="idtbimageroom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="imageroompath" Type="nvarchar" MaxLength="65" Nullable="false" />
+          <Property Name="imageroompath" Type="nvarchar" MaxLength="4000" Nullable="false" />
           <Property Name="room" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tbphone">
@@ -121,7 +121,7 @@
           <Property Name="descriptionroom" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="quantitypersons" Type="int" Nullable="false" />
           <Property Name="price" Type="money" Nullable="false" />
-          <Property Name="imagepathroomtype" Type="nvarchar" MaxLength="65" Nullable="false" />
+          <Property Name="imagepathroomtype" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="tbsocialred">
           <Key>
@@ -149,18 +149,6 @@
           <Property Name="emailuseradmin" Type="varchar" MaxLength="75" Nullable="false" />
           <Property Name="passworduseradmin" Type="varchar" MaxLength="60" Nullable="false" />
         </EntityType>
-        <Association Name="fkimageroomtoroom">
-          <End Role="tbroom" Type="Self.tbroom" Multiplicity="1" />
-          <End Role="tbimageroom" Type="Self.tbimageroom" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbroom">
-              <PropertyRef Name="idtbroom" />
-            </Principal>
-            <Dependent Role="tbimageroom">
-              <PropertyRef Name="room" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="fkreservationtoclient">
           <End Role="tbclient" Type="Self.tbclient" Multiplicity="1" />
           <End Role="tbreservation" Type="Self.tbreservation" Multiplicity="*" />
@@ -226,10 +214,6 @@
           <EntitySet Name="tbsocialred" EntityType="Self.tbsocialred" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbuser" EntityType="Self.tbuser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbuseradmin" EntityType="Self.tbuseradmin" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="fkimageroomtoroom" Association="Self.fkimageroomtoroom">
-            <End Role="tbroom" EntitySet="tbroom" />
-            <End Role="tbimageroom" EntitySet="tbimageroom" />
-          </AssociationSet>
           <AssociationSet Name="fkreservationtoclient" Association="Self.fkreservationtoclient">
             <End Role="tbclient" EntitySet="tbclient" />
             <End Role="tbreservation" EntitySet="tbreservation" />
@@ -304,14 +288,14 @@
             <PropertyRef Name="idtbimagegallery" />
           </Key>
           <Property Name="idtbimagegallery" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="imagegallerypath" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="imagegallerypath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="tbimageroom">
           <Key>
             <PropertyRef Name="idtbimageroom" />
           </Key>
           <Property Name="idtbimageroom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="imageroompath" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="imageroompath" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="room" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tbroom" Relationship="Self.fkimageroomtoroom" FromRole="tbimageroom" ToRole="tbroom" />
         </EntityType>
@@ -367,7 +351,7 @@
           <Property Name="descriptionroom" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="quantitypersons" Type="Int32" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-          <Property Name="imagepathroomtype" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="imagepathroomtype" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tbrooms" Relationship="Self.fkroomtotyperoom" FromRole="tbroomtype" ToRole="tbroom" />
         </EntityType>
         <EntityType Name="tbsocialred">
