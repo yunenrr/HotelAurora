@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Estado del hotel";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    if (Session["nametbuser"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+
+}
+
+@model ModAdministrative.Models.tbhotel
+
+<div class="form-horizontal">
+    <h4>Seccion quienes somos</h4>
+    <hr />
+    <form action="@Url.Action("setInformation","hotel")" method="post">
+        <div class="form-group">
+            <h2 class = "control-label col-md-2">Misión</h2>
+            <div class="col-md-10">
+                <textarea id="mision" name="mision" class="form-control">
+                    @Model.mission
+                </textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h2 class="control-label col-md-2">Visión</h2>
+            <div class="col-md-10">
+                <textarea id="vision" name="vision" class="form-control">
+                    @Model.vission
+                </textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h2 class="control-label col-md-2">Historia</h2>
+            <div class="col-md-10">
+                <textarea id="historia" name="historia" class="form-control">
+                    @Model.history
+                </textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-default">Guardar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
