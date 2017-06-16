@@ -695,3 +695,5 @@ C:\Users\dayla\Pictures\HotelAurora\WebApplication2\bin\es\System.Web.WebPages.R
 C:\Users\dayla\Pictures\HotelAurora\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
 C:\Users\dayla\Pictures\HotelAurora\WebApplication2\obj\Debug\WebApplication2.dll
 C:\Users\dayla\Pictures\HotelAurora\WebApplication2\obj\Debug\WebApplication2.pdb
+C:\Users\dayla\Desktop\HotelAurora\WebApplication2\bin\itextsharp.dll
+C:\Users\dayla\Desktop\HotelAurora\WebApplication2\bin\itextsharp.xml

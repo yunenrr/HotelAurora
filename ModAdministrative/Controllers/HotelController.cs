@@ -33,10 +33,12 @@ namespace ModAdministrative.Controllers
             string mision = Request.Form["mision"].ToString();
             string vision = Request.Form["vision"].ToString();
             string historia = Request.Form["historia"].ToString();
+            string information = Request.Form["information"].ToString();
 
             Debug.WriteLine(mision + "asd");
             Debug.WriteLine(vision + "asd8");
             Debug.WriteLine(historia + "asd");
+            Debug.WriteLine(information + "asd");
 
             var a = db.tbhotels.Find(4);
             hotel.IdHotel= 4;
@@ -45,6 +47,7 @@ namespace ModAdministrative.Controllers
             hotel.History = historia;
             hotel.Mission = mision;
             hotel.Vission = vision;
+            hotel.BasicInformation = information;
 
 
             /*db.Entry(a).State = System.Data.Entity.EntityState.Modified;
@@ -53,9 +56,10 @@ namespace ModAdministrative.Controllers
             var result = db.tbhotels.SingleOrDefault(b => b.idtbhotel == 4);
             if (result != null)
             {
-                result.vission = vision;
-                result.mission = mision;
-                result.history = historia;
+                result.vission = vision.TrimEnd(' '); ;
+                result.mission = mision.TrimEnd(' '); ;
+                result.history = historia.TrimEnd(' '); ;
+                result.basicinformation = information.TrimEnd(' ');
                 db.SaveChanges();
             }
 
