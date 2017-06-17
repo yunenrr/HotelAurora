@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ModAdministrative.Models.tbfacility>
+
+@{
+    ViewBag.Title = "Facilidades";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    if (Session["nametbuser"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<h2>Facilidades:</h2>
+
+<p>
+    @Html.ActionLink("Agregar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre:
+        </th>
+        <th>
+            Descripción:
+        </th>
+        <th>
+            Imagen:
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.facility)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descriptionfacility)
+        </td>
+        <td>
+            <img width="140" height="140" src="@Html.DisplayFor(modelItem => item.imagefacilitypath)" />
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idtbfacility }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idtbfacility }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idtbfacility })
+        </td>
+    </tr>
+}
+
+</table>

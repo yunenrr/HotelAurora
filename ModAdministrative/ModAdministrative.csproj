@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FacilityController.cs" />
     <Compile Include="Controllers\HotelController.cs" />
     <Compile Include="Controllers\ImageGalleryController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -285,6 +286,11 @@
     <Content Include="Views\ImageGallery\Edit.cshtml" />
     <Content Include="Views\ImageGallery\Index.cshtml" />
     <Content Include="Views\Hotel\getInformation.cshtml" />
+    <Content Include="Views\Facility\Create.cshtml" />
+    <Content Include="Views\Facility\Delete.cshtml" />
+    <Content Include="Views\Facility\Details.cshtml" />
+    <Content Include="Views\Facility\Edit.cshtml" />
+    <Content Include="Views\Facility\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

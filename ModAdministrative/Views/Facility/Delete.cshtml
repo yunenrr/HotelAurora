@@ -1,0 +1,54 @@
+﻿@model ModAdministrative.Models.tbfacility
+
+@{
+    ViewBag.Title = "Eliminar facilidad";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    if (Session["nametbuser"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<h2>Eliminar facilidad</h2>
+
+<h3>¿Seguro que desea eliminar la facilidad?</h3>
+<div>
+    <h4>Información:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.facility)
+        </dd>
+
+        <dt>
+            Descripción:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descriptionfacility)
+        </dd>
+
+        <dt>
+            Imagen:
+        </dt>
+
+        <dd>
+            <img width="140" height="140" src="@Html.DisplayFor(model => model.imagefacilitypath)" />
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver a la lista", "Index")
+        </div>
+    }
+</div>

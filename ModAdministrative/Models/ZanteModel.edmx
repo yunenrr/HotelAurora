@@ -38,7 +38,7 @@
           <Property Name="idtbfacility" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="facility" Type="nvarchar" MaxLength="65" />
           <Property Name="descriptionfacility" Type="nvarchar" MaxLength="200" />
-          <Property Name="imagefacilitypath" Type="nvarchar" MaxLength="200" />
+          <Property Name="imagefacilitypath" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="tbhotel">
           <Key>
@@ -64,7 +64,7 @@
             <PropertyRef Name="idtbimageroom" />
           </Key>
           <Property Name="idtbimageroom" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="imageroompath" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="imageroompath" Type="varchar(max)" Nullable="false" />
           <Property Name="room" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tbphone">
@@ -269,7 +269,7 @@
           <Property Name="idtbfacility" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="facility" Type="String" MaxLength="65" FixedLength="false" Unicode="true" />
           <Property Name="descriptionfacility" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="imagefacilitypath" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="imagefacilitypath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tbhotel">
           <Key>
@@ -295,7 +295,7 @@
             <PropertyRef Name="idtbimageroom" />
           </Key>
           <Property Name="idtbimageroom" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="imageroompath" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="imageroompath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="room" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tbroom" Relationship="Self.fkimageroomtoroom" FromRole="tbimageroom" ToRole="tbroom" />
         </EntityType>

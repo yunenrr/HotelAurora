@@ -1,0 +1,48 @@
+﻿@model ModAdministrative.Models.tbfacility
+
+@{
+    ViewBag.Title = "Detalles facilidad";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    if (Session["nametbuser"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+}
+
+<h2>Detalles facilidad</h2>
+
+<div>
+    <h4>Información</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nombre:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.facility)
+        </dd>
+
+        <dt>
+            Descripción:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descriptionfacility)
+        </dd>
+
+        <dt>
+            Imagen:
+        </dt>
+
+        <dd>
+            <img width="140" height="140" src="@Html.DisplayFor(model => model.imagefacilitypath)" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idtbfacility }) |
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>
