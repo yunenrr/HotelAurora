@@ -30,7 +30,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.imageroompath)
+            <img width="140" height="140" src="@Html.DisplayFor(modelItem => item.imageroompath)" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.tbroom.nameroom)
