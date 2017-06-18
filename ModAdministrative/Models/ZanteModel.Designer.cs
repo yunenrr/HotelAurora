@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\yunen\Desktop\Universidad\HotelAurora\ModAdministrative\Models\ZanteModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Daniel\Documents\ProyectosGit\HotelAurora\ModAdministrative\Models\ZanteModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

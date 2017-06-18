@@ -78,10 +78,10 @@
           <Key>
             <PropertyRef Name="idtbpromotion" />
           </Key>
-          <Property Name="idtbpromotion" Type="int" Nullable="false" />
-          <Property Name="promotion" Type="nvarchar" MaxLength="75" Nullable="false" />
-          <Property Name="descriptionpromotion" Type="nvarchar" MaxLength="500" Nullable="false" />
-          <Property Name="imagepromotion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="idtbpromotion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="promotion" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="descriptionpromotion" Type="nvarchar" MaxLength="600" Nullable="false" />
+          <Property Name="imagepromotion" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="tbreservation">
           <Key>
@@ -311,9 +311,9 @@
             <PropertyRef Name="idtbpromotion" />
           </Key>
           <Property Name="idtbpromotion" Type="Int32" Nullable="false" />
-          <Property Name="promotion" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="descriptionpromotion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="imagepromotion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="promotion" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descriptionpromotion" Type="String" MaxLength="600" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="imagepromotion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="tbreservation">
           <Key>

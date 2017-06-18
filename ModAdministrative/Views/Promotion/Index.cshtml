@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ModAdministrative.Models.tbpromotion>
+
+@{
+    ViewBag.Title = "Index";
+
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+    if (Session["nametbuser"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.promotion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descriptionpromotion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.imagepromotion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.promotion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descriptionpromotion)
+        </td>
+        <td>
+            <img width="140" height="140" src="@Html.DisplayFor(modelItem => item.imagepromotion)" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idtbpromotion }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idtbpromotion }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idtbpromotion })
+        </td>
+    </tr>
+}
+
+</table>

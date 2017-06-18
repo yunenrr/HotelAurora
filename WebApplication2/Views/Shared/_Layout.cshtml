@@ -47,7 +47,7 @@
             type: "Get",
             success: function (data) {
                 for (var i = 0; i < data.length; i++) {
-                    var imagePath = '/Content/images/promociones/' + data[i].ImagePromotion;
+                    var imagePath = data[i].ImagePromotion;
 
                     if (i == 0) {
                         $('<li class="slider-current">' +
