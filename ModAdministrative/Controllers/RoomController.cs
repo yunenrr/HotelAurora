@@ -19,6 +19,12 @@ namespace ModAdministrative.Controllers
         // GET: Room
         public ActionResult Index()
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             var tbrooms = db.tbrooms.Include(t => t.tbroomtype);
             return View(tbrooms.ToList());
         }
@@ -26,6 +32,12 @@ namespace ModAdministrative.Controllers
         // GET: Room/Details/5
         public ActionResult Details(int? id)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -41,6 +53,12 @@ namespace ModAdministrative.Controllers
         // GET: Room/Create
         public ActionResult Create()
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             ViewBag.typeroom = new SelectList(db.tbroomtypes, "idtbroomtype", "roomtype");
             return View();
         }
@@ -52,6 +70,12 @@ namespace ModAdministrative.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "idtbroom,nameroom,characteristics,availability,typeroom")] tbroom tbroom)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.tbrooms.Add(tbroom);
@@ -66,6 +90,12 @@ namespace ModAdministrative.Controllers
         // GET: Room/Edit/5
         public ActionResult Edit(int? id)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -86,6 +116,12 @@ namespace ModAdministrative.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "idtbroom,nameroom,characteristics,availability,typeroom")] tbroom tbroom)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(tbroom).State = EntityState.Modified;
@@ -99,6 +135,12 @@ namespace ModAdministrative.Controllers
         // GET: Room/Delete/5
         public ActionResult Delete(int? id)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

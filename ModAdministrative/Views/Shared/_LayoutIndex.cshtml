@@ -41,20 +41,28 @@
     <!-- Menú lateral -->
     <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
         <ul class="nav menu">
-            <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-            <li><a href="#">Modificar páginas</a></li>
-            <li><a href="#">Listado de reservaciones</a></li>
-            <li id="liSomos">@Html.ActionLink("Administrar Quienes somos", "getInformation", "Hotel")</li>
-            <li id="liRoom">@Html.ActionLink("Administrar habitaciones", "Index", "Room")</li>
-            <li id="liFacility">@Html.ActionLink("Facilidades", "Index", "Facility")</li>
-            <li id="liStateToday">@Html.ActionLink("Estado del hotel (Hoy)", "AvailablesRoom", "Room")</li>
-            <li id="liStateTodayDates">@Html.ActionLink("Consultar disponibilidad de habitaciones", "AvailablesRoomDates", "Room")</li>
-            <li id="liUser">@Html.ActionLink("Usuarios", "Index", "User")</li>
-            <li id="liSocialRed">@Html.ActionLink("Redes Sociales", "Index","SocialRed")</li>
-            <li id="liRoomType">@Html.ActionLink("Tipo Habitación", "Index", "RoomType")</li>
-            <li id="liRoomImage">@Html.ActionLink("Imagen Habitación", "Index", "RoomImage")</li>
-            <li id="liGalleryImage">@Html.ActionLink("Imagenes Galería", "Index", "ImageGallery")</li>
-            <li id="liPromotion">@Html.ActionLink("Promoción", "Index", "Promotion")</li>
+            <!-- Si es un usuario lector entra al if -->
+            @if (!Session["role"].ToString().Equals("1"))
+            {
+                <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                <li id="liStateToday">@Html.ActionLink("Estado del hotel (Hoy)", "AvailablesRoom", "Room")</li>
+                <li id="liStateTodayDates">@Html.ActionLink("Consultar disponibilidad de habitaciones", "AvailablesRoomDates", "Room")</li>
+            }
+            else
+            {
+                <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                <li id="liSomos">@Html.ActionLink("Administrar Quienes somos", "getInformation", "Hotel")</li>
+                <li id="liRoom">@Html.ActionLink("Administrar habitaciones", "Index", "Room")</li>
+                <li id="liFacility">@Html.ActionLink("Facilidades", "Index", "Facility")</li>
+                <li id="liStateToday">@Html.ActionLink("Estado del hotel (Hoy)", "AvailablesRoom", "Room")</li>
+                <li id="liStateTodayDates">@Html.ActionLink("Consultar disponibilidad de habitaciones", "AvailablesRoomDates", "Room")</li>
+                <li id="liUser">@Html.ActionLink("Usuarios", "Index", "User")</li>
+                <li id="liSocialRed">@Html.ActionLink("Redes Sociales", "Index", "SocialRed")</li>
+                <li id="liRoomType">@Html.ActionLink("Tipo Habitación", "Index", "RoomType")</li>
+                <li id="liRoomImage">@Html.ActionLink("Imagen Habitación", "Index", "RoomImage")</li>
+                <li id="liGalleryImage">@Html.ActionLink("Imagenes Galería", "Index", "ImageGallery")</li>
+                <li id="liPromotion">@Html.ActionLink("Promoción", "Index", "Promotion")</li>
+            }
         </ul>
     </div><!--/.sidebar-->
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">

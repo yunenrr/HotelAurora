@@ -17,16 +17,29 @@ namespace ModAdministrative.Controllers
         // GET: Facility
         public ActionResult Index()
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View(db.tbfacilities.ToList());
         }
 
         // GET: Facility/Details/5
         public ActionResult Details(int? id)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             tbfacility tbfacility = db.tbfacilities.Find(id);
             if (tbfacility == null)
             {
@@ -38,6 +51,12 @@ namespace ModAdministrative.Controllers
         // GET: Facility/Create
         public ActionResult Create()
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View();
         }
 
@@ -48,6 +67,12 @@ namespace ModAdministrative.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "idtbfacility,facility,descriptionfacility,imagefacilitypath")] tbfacility tbfacility)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.tbfacilities.Add(tbfacility);
@@ -61,6 +86,12 @@ namespace ModAdministrative.Controllers
         // GET: Facility/Edit/5
         public ActionResult Edit(int? id)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -80,6 +111,12 @@ namespace ModAdministrative.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "idtbfacility,facility,descriptionfacility,imagefacilitypath")] tbfacility tbfacility)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(tbfacility).State = EntityState.Modified;
@@ -92,6 +129,12 @@ namespace ModAdministrative.Controllers
         // GET: Facility/Delete/5
         public ActionResult Delete(int? id)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
