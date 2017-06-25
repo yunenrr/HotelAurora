@@ -11,7 +11,8 @@ namespace ModAdministrative.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbroom
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,9 +23,19 @@ namespace ModAdministrative.Models
         }
     
         public int idtbroom { get; set; }
+
+        [Required(ErrorMessage = "Escriba el nombre de la habitación")]
+        [StringLength(65, ErrorMessage = "El tamaño es muy grande")]
         public string nameroom { get; set; }
+
+        [Required(ErrorMessage = "Escriba características sobre la habitación")]
+        [StringLength(300, ErrorMessage = "El tamaño es muy grande")]
         public string characteristics { get; set; }
+
+        [Required(ErrorMessage = "Seleccione la disponibilidad")]
         public Nullable<bool> availability { get; set; }
+
+        [Required(ErrorMessage = "Seleccione el tipo de habitación")]
         public int typeroom { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

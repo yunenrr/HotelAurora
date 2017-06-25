@@ -11,11 +11,18 @@ namespace ModAdministrative.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbuser
     {
         public int idtbuser { get; set; }
+
+        [Required(ErrorMessage = "El nombre de usuario es requerido")]
+        [StringLength(50, ErrorMessage = "El tamaño es muy grande")]
         public string nametbuser { get; set; }
+
+        [Required(ErrorMessage = "Ingrese la contraseña")]
+        [StringLength(25, ErrorMessage = "El tamaño es muy grande")]
         public string password { get; set; }
         public int idtbrole { get; set; }
     

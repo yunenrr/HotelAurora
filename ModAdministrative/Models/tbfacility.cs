@@ -11,12 +11,21 @@ namespace ModAdministrative.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tbfacility
     {
         public int idtbfacility { get; set; }
+
+        [Required(ErrorMessage = "Escriba el nombre de la facilidad")]
+        [StringLength(65, ErrorMessage = "El tamaño es muy grande")]
         public string facility { get; set; }
+
+        [Required(ErrorMessage = "Escriba una descripción")]
+        [StringLength(200, ErrorMessage = "El tamaño es muy grande")]
         public string descriptionfacility { get; set; }
+
+        [Required(ErrorMessage = "Ingrese una imagen")]
         public string imagefacilitypath { get; set; }
     }
 }
