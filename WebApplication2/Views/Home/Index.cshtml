@@ -54,11 +54,11 @@
 
                 for (var i = 0; i < interval; i++)
                 {
-                    img += '<div><img src="/Content/images/' + data[i].PathImageFacility + '" class="img-responsive" alt="Image"></div>';
+                    img += '<div><img src="' + data[i].PathImageFacility + '" class="img-responsive" alt="Image"></div>';
                 }//Fin del for
                 $("#div-facility").html('<div class="owl-carousel" id="features_slider" data-slider-id="features">' + img + '</div>');
             },
-            error: function (msg) { alert(msg); }
+            error: function (msg) {}
         });
     }//Fin de la función insertFacilityImage
 

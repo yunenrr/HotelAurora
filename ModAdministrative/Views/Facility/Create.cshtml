@@ -63,6 +63,13 @@
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
 <script>
+    $(document).ready
+    (
+        function () {
+            $("#liFacility").addClass("active");
+        }//Fin de la función
+    );
+
     function leerArchivo() {
         if (this.files && this.files[0]) {
             var FR = new FileReader();
