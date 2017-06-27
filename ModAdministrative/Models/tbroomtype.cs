@@ -11,8 +11,7 @@ namespace ModAdministrative.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class tbroomtype
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,22 +21,10 @@ namespace ModAdministrative.Models
         }
     
         public int idtbroomtype { get; set; }
-
-        [Required(ErrorMessage = "Escriba el nombre de la habitación")]
-        [StringLength(65, ErrorMessage = "El tamaño es muy grande")]
         public string roomtype { get; set; }
-
-        [Required(ErrorMessage = "Escriba una descripción")]
-        [StringLength(200, ErrorMessage = "El tamaño es muy grande")]
         public string descriptionroom { get; set; }
-
-        [Required(ErrorMessage = "Escriba la cantidad de personas")]
         public int quantitypersons { get; set; }
-
-        [Required(ErrorMessage = "Escriba el precio por noche")]
         public decimal price { get; set; }
-
-        [Required(ErrorMessage = "Por favor, agregue una imagen")]
         public string imagepathroomtype { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

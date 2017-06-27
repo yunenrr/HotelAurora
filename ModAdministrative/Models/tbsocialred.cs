@@ -11,18 +11,11 @@ namespace ModAdministrative.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class tbsocialred
     {
         public int idtbsocialred { get; set; }
-
-        [Required(ErrorMessage = "Escriba el nombre de la red social")]
-        [StringLength(65, ErrorMessage = "El tamaño es muy grande")]
         public string socialred { get; set; }
-
-        [Required(ErrorMessage = "Escriba la dirección de la red social")]
-        [StringLength(65, ErrorMessage = "El tamaño es muy grande")]
         public string urlsocialred { get; set; }
     }
 }

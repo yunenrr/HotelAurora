@@ -10,7 +10,7 @@
             <PropertyRef Name="idtbadvertising" />
           </Key>
           <Property Name="idtbadvertising" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="imageadvertisingpath" Type="nvarchar" MaxLength="65" Nullable="false" />
+          <Property Name="imageadvertisingpath" Type="nvarchar(max)" Nullable="false" />
           <Property Name="urladvertising" Type="nvarchar" MaxLength="130" Nullable="false" />
         </EntityType>
         <EntityType Name="tbclient">
@@ -240,7 +240,7 @@
             <PropertyRef Name="idtbadvertising" />
           </Key>
           <Property Name="idtbadvertising" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="imageadvertisingpath" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="imageadvertisingpath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="urladvertising" Type="String" MaxLength="130" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="tbclient">
