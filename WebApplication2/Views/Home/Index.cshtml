@@ -12,7 +12,7 @@
                 $("<p'>" + data.BasicInformation + "</p>").appendTo("#about");
                 $("<p'>" + data.Location + "</p>").appendTo("#location");
             },
-            error: function (msg) { alert(msg); }
+            error: function (msg) { console.log("Se cayó obteniendo información del hotel"); }
         });
     });
 </script>
@@ -33,7 +33,7 @@
                     '</a></div></div>').appendTo("#gallery_slider");
                 }
             },
-            error: function (msg) { alert(msg); }
+            error: function (msg) { console.log("Se cayó obteniendo las imágenes de la galería"); }
         });
     });
 </script>
@@ -58,7 +58,7 @@
                 }//Fin del for
                 $("#div-facility").html('<div class="owl-carousel" id="features_slider" data-slider-id="features">' + img + '</div>');
             },
-            error: function (msg) {}
+            error: function (msg) { console.log("Se cayó obteniendo las imágenes de las facilidades"); }
         });
     }//Fin de la función insertFacilityImage
 
@@ -86,7 +86,7 @@
                 text += '</div>';
                 $("#div_facility_text").html(text);
             },
-            error: function (msg) { alert(msg); }
+            error: function (msg) { console.log("Se cayó obteniendo las facilidades"); }
         });
     }//Fin de la función insertFacilityText
 </script>
@@ -116,7 +116,7 @@
                     $("#div-rooms").append(temp);
                 }//Fin del for
             },
-            error: function (msg) { alert(msg); }
+            error: function (msg) { console.log("Se cayó obteniendo los tipos de habitación"); }
         });
     });
 </script>
@@ -148,14 +148,10 @@
 
 
 <section class="slider-container ofertas" style="z-index:1">
-    <ul id="slider" class="slider-wrapper">
-
-    </ul>
+    <ul id="slider" class="slider-wrapper"></ul>
 
     <!--controles-->
-    <ul id="slider-controls" class="slider-controls">
-        
-    </ul>
+    <ul id="slider-controls" class="slider-controls"></ul>
 </section>
 
 <!-- ========== ABOUT & ROOMS ========== -->
@@ -245,7 +241,7 @@
 
 <div class="container">
     <div class="mt40 a_center">
-        <a class="button btn_sm btn_dark upper" href="@Url.Action("Gallery", "Home")">View Full Gallery</a>
+        <a class="button btn_sm btn_dark upper" href="@Url.Action("Gallery", "Home")">Ver galería completa</a>
     </div>
 </div>
 
@@ -273,21 +269,13 @@
             <h2>Ubicación - Contacto</h2>
         </div>
 
-        <!--
-             <p  class="main_description a_center">
-                 El Hotel Aurora esta localizada en Playa Flamingo, al noroeste de Bahía Brasilito, 75 Km. al suroeste de Liberia. Ubicada entre Playa Potrero y Playa Brasilito, es el mejor punto maritimo entre Acapulco y Panamá en la costa Pacifica.
-             </p>
-        -->
-
         <div id="location" class="main_description a_center"> </div>
 
 
         <div class="row">
             <div class="col-md-6">
-
                 <!--  <div id="map-canvas"></div>    -->
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d422468.52802459954!2d-85.66965980687297!3d10.340272210653733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f9e2515837bf2a1%3A0xf8b4cbf3c601141f!2sProvincia+de+Guanacaste%2C+Playa+Flamingo%2C+Costa+Rica!5e0!3m2!1ses!2s!4v1491424589204" width="580" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
-
             </div>
             <div class="col-md-6">
                 <div class="row">
@@ -369,22 +357,3 @@
 
     </div>
 </div>
-
-
-<!-- ========== SUBSCRIBE ========== -->
-<section id="subscribe" class="gradient_overlay">
-    <div class="inner">
-        <div class="container">
-            <div class="main_title mt_wave mt_white a_center" id="advertising">
-                <h2>SUBSCRIBE TO OUR NEWSLETTER</h2>
-            </div>
-            <p class="main_description md_white a_center">Subscribe to our newsletter to receive exclusive offers and the latest news.</p>
-            <form id="subscribe-form" name="subscribe">
-                <div class="form-group">
-                    <input type="email" name="subscribe-email" class="form-control" placeholder="Enter your email">
-                    <button class="button btn_lg btn_yellow" type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-                </div>
-            </form>
-        </div>
-    </div>
-</section>

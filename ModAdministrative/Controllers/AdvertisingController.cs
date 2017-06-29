@@ -82,11 +82,15 @@ namespace ModAdministrative.Controllers
             return View(tbadvertising);
         }
 
-
-
         // GET: Promotion/Delete/5
         public ActionResult Delete(int? id)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -116,6 +120,12 @@ namespace ModAdministrative.Controllers
         // GET: Promotion/Edit/5
         public ActionResult Edit(int? id)
         {
+            //Se valida la autorización
+            if (!Session["role"].ToString().Equals("1"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

@@ -5,7 +5,7 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
 
-    <title>@ViewBag.Title</title>
+    <title>Zante Hotel</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -205,16 +205,10 @@
                 <nav id="main_menu" class="mobile_menu navbar-collapse" style="z-index:1;">
                     <ul class="nav navbar-nav">
                         <li class="mobile_menu_title" style="display:none;">MENU</li>
-                        <li><a href="#about_rooms">INICIO</a></li>
+                        <li>@Html.ActionLink("INICIO", "Booking", "Home", new { area = "" }, null)</li>
                         <li><a href="#testimonials_style_2">SOBRE NOSOTROS</a></li>
                         <li><a href="#features">FACILIDADES</a></li>
                         <li><a href="#contact">CONTACTO ¿CÓMO LLEGAR?</a></li>
-                        <li class="menu_button">
-                            <a href="" class="button  btn_yellow"><i class="fa fa-calendar"></i>BOOK ONLINE</a>
-
-                        </li>
-
-                        <li>@Html.ActionLink("Home", "Booking", "Home", new { area = "" }, null)</li>
                     </ul>
                 </nav>
             </div>
@@ -292,17 +286,12 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="copyrights">
-                                Copyright 2016 <a href="index.html">Zante Hotel</a> All Rights Reserved.
+                                Copyright 2016 @Html.ActionLink("Zante Hotel", "Index", "Home", new { area = "" }, null) Todos los derechos reservados.
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="social_media">
-                                <a class="facebook" data-original-title="Facebook" data-toggle="tooltip" href="#"><i class="fa fa-facebook"></i></a>
-                                <a class="twitter" data-original-title="Twitter" data-toggle="tooltip" href="#"><i class="fa fa-twitter"></i></a>
-                                <a class="googleplus" data-original-title="Google Plus" data-toggle="tooltip" href="#"><i class="fa fa-google-plus"></i></a>
-                                <a class="pinterest" data-original-title="Pinterest" data-toggle="tooltip" href="#"><i class="fa fa-pinterest"></i></a>
-                                <a class="linkedin" data-original-title="Linkedin" data-toggle="tooltip" href="#"><i class="fa fa-linkedin"></i></a>
-                                <a class="instagram" data-original-title="Instagram" data-toggle="tooltip" href="#"><i class="fa fa-instagram"></i></a>
+                                <a class="facebook" data-original-title="Facebook" data-toggle="tooltip" href="https://www.facebook.com/yunenrr"><i class="fa fa-facebook"></i></a>
                             </div>
                         </div>
                     </div>
@@ -319,14 +308,6 @@
 
     <!-- ========== NOTIFICATION ========== -->
     <div id="notification"></div>
-
-    <!-- ========== BUY NOW ========== -->
-    <div class='buy-now left'>
-        <a href="https://themeforest.net/item/zante-hotel-hotel-html-template/19229009?ref=Eagle-Themes" target="_blank" class='buy-now-btn'>
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-        </a>
-        <div class='ripple'></div>
-    </div>
 
     <!-- ========== JAVASCRIPT ========== -->
     @Scripts.Render("~/bundles/jquery")
