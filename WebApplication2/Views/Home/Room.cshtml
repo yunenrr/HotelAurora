@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Habitación";
     Layout = "~/Views/Shared/_LayoutSecondPage.cshtml";
 }
@@ -30,7 +29,8 @@
             {
                 alert(data.IdRoomType + " - " + data.NameRoomType);
                 $("#priceByNight").html('¢' + data.PriceRoomType + '<span>por noche</span>');
-                $("#urlRoomType").html('<a href="../roomtype/' + data.IdRoomType + '">' + data.NameRoomType + '</a>');
+                $("#urlRoomType").html('<a href="' + data.IdRoomType + '">' + data.NameRoomType + '</a>');
+                $('#idRoomType').attr('value', data.IdRoomType);
             },
             error: function (msg) { alert("Error in type"); }
         });
@@ -48,8 +48,8 @@
                 for (var i = 0; i < data.length; i++)
                 {
                     itemSlider += '<div class="item lightbox-image-icon">'+
-                            '<a href="/Content/images/rooms/single-room/' + data[i].ImageRoomPath + '" class="hover_effect h_lightbox h_blue">'+
-                                '<img class="img-responsive" src="/Content/images/rooms/single-room/' + data[i].ImageRoomPath + '" alt="Image">' +
+                            '<a href="' + data[i].ImageRoomPath + '" class="hover_effect h_lightbox h_blue">'+
+                                '<img class="img-responsive" src="' + data[i].ImageRoomPath + '" alt="Image">' +
                             '</a>'+
                         '</div>';
                     itemThumbds += '<div class="item"><img class="img-responsive" src="/Content/images/rooms/single-room/' + data[i].ImageRoomPath + '" alt="Image"></div>';
@@ -59,6 +59,35 @@
             error: function (msg) { alert("Error in slider image"); }
         });
     }//Fin de la función
+
+    function getClientByDNI() {
+        var dni = $("#dni").val();
+        if(dni != "") {
+            $.ajax({
+                url: "http://localhost:63596/api/Client/getClientByDNI/" + dni,
+                type: "Get",
+                success: function (data) {
+                    if (data == null) {
+                        $("#name").attr("value", "");
+                        $("#surnames").attr("value", "");
+                        $("#email").attr("value", "");
+                        $("#idClient").attr("value", "");
+                    } else {
+                        $("#name").attr("value", data.Name);
+                        $("#surnames").attr("value", data.Surnames);
+                        $("#email").attr("value", data.Email);
+                        $("#idClient").attr("value", data.Idtbclient);
+                    }
+                },
+                error: function (msg) { alert("No connection to database"); }
+            });
+        } else {
+            $("#name").attr("value", data.Name);
+            $("#surnames").attr("value", data.Surnames);
+            $("#email").attr("value", data.Email);
+        }
+    }//Fin de la función
+
 </script>
 <!-- =========== PAGE TITLE ========== -->
 <div class="page_title gradient_overlay" style="background:url(images/xpage_title_bg.jpg.pagespeed.ic.mhkLvKptY0.jpg)">
@@ -101,66 +130,40 @@
                 <div class="sidebar">
                     <aside class="widget">
                         <div class="vbf">
-                            <h2 class="form_title"><i class="fa fa-calendar"></i> BOOK ONLINE</h2>
-                            <form id="booking-form" class="inner">
+                            <h2 class="form_title"><i class="fa fa-calendar"></i>Reservación en linea</h2>
+                            <form id="booking-form" class="inner" action="@Url.Action("setInformation","hotel")" method="post">
                                 <div class="form-group">
-                                    <input class="form-control" name="booking-name" placeholder="Enter Your Name" type="text">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" name="booking-email" placeholder="Enter Your Email Address" type="email">
+                                    <input class="form-control" name="dni" id="dni" placeholder="Ingrese su DNI" type="text" onfocusout="getClientByDNI();">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" name="booking-phone" placeholder="Enter Your Phone Number" type="text">
+                                    <input class="form-control" name="name" id="name" placeholder="Ingrese su nombre" type="text">
                                 </div>
                                 <div class="form-group">
-                                    <div class="form_select">
-                                        <select name="booking-roomtype" class="form-control" title="Select Room Type" data-header="Room Type" disabled>
-                                            <option value="Single Room" selected>Single Room</option>
-                                            <option value="Double Room">Double Room</option>
-                                            <option value="Deluxe Room">Deluxe Room</option>
-                                        </select>
-                                    </div>
+                                    <input class="form-control" name="surnames" id="surnames" placeholder="Ingrese sus apellidos" type="text">
                                 </div>
-                                <div class="form-group col-md-6 col-sm-6 col-xs-12 nopadding">
-                                    <div class="form_select">
-                                        <select name="booking-adults" class="form-control md_noborder_right" title="Adults" data-header="Adults">
-                                            <option value="0">0</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                        </select>
-                                    </div>
+                                <div class="form-group">
+                                    <input class="form-control" name="email" id="email" placeholder="Ingrese su email" type="email">
                                 </div>
-                                <div class="form-group col-md-6 col-sm-6 col-xs-12 nopadding">
-                                    <div class="form_select">
-                                        <select name="booking-children" class="form-control" title="Children" data-header="Children">
-                                            <option value="0">0</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                        </select>
-                                    </div>
+                                <div class="form-group">
+                                    <input class="form-control" name="creditcard" id="creditcard" placeholder="Ingrese número tarjeta" type="text">
                                 </div>
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12 nopadding">
                                     <div class="input-group">
                                         <div class="form_date">
-                                            <input type="text" class="datepicker form-control md_noborder_right" name="booking-checkin" placeholder="Arrival Date" readonly>
+                                            <input type="text" class="datepicker form-control md_noborder_right" name="datein" placeholder="Fecha Ingreso" readonly>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6 col-sm-6 col-xs-12 nopadding">
                                     <div class="input-group">
                                         <div class="form_date">
-                                            <input type="text" class="datepicker form-control" name="booking-checkout" placeholder="Departure Date" readonly>
+                                            <input type="text" class="datepicker form-control" name="dateout" placeholder="Fecha Salida" readonly>
                                         </div>
                                     </div>
                                 </div>
-                                <button class="button btn_lg btn_blue btn_full" type="submit">BOOK A ROOM NOW</button>
-                                <div class="a_center mt10">
-                                    <a href="booking-form.html" class="a_b_f">Advanced Booking Form</a>
-                                </div>
+                                <input type="hidden" id="idClient">
+                                <input type="hidden" id="idRoomType">
+                                <button class="button btn_lg btn_blue btn_full" type="submit">RESERVAR</button>
                             </form>
                         </div>
                     </aside>

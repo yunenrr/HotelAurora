@@ -40,5 +40,12 @@ namespace WebApplication2.Controllers
             return clientBusiness.getClienById(id);   
         }
 
+        [Route("api/Client/getClientByDNI/{dni}")]
+        [HttpGet]
+        public Client getClientByDNI(string dni)
+        {
+            return clientBusiness.getClientByDNI(dni);
+        }
+
     }
 }

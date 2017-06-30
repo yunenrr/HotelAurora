@@ -38,6 +38,11 @@ namespace WebApplication2.Business
             return this.clientData.getClientById(id);
         }
 
+        public Client getClientByDNI(string dni)
+        {
+            return this.clientData.getClientByDNI(dni);
+        }
+
 
     }
 }
